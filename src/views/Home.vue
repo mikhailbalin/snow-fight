@@ -1,12 +1,18 @@
 <template>
   <div>
-    <h1>This is an home page</h1>
+    <block-slider />
+    <block-game />
+    <block-newsletter />
   </div>
 </template>
 
 <script>
+import BlockSlider from '@/components/BlockSlider.vue';
+import BlockGame from '@/components/BlockGame.vue';
+import BlockNewsletter from '@/components/BlockNewsletter.vue';
+
 export default {
   name: 'Home',
-  components: {}
+  components: { BlockSlider, BlockGame, BlockNewsletter }
 };
 </script>
