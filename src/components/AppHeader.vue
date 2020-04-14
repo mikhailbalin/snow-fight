@@ -3,12 +3,12 @@
     <v-toolbar-title>Page title</v-toolbar-title>
 
     <nav>
-      <router-link :to="{ name: 'Home' }">Что это?</router-link>|
-      <router-link :to="{ name: 'Contacts' }">Как играть?</router-link>|
-      <router-link :to="{ name: 'Questions' }">Организация</router-link>|
-      <router-link :to="{ name: 'Questions' }">Цены</router-link>|
-      <router-link :to="{ name: 'Questions' }">Вопросы</router-link>|
-      <router-link :to="{ name: 'Contacts' }">Контакты</router-link>|
+      <v-btn to="/#what-is-this" text>Что это?</v-btn>
+      <v-btn to="/#how-to-play" text>Как играть?</v-btn>
+      <v-btn to="/#setup" text>Организация</v-btn>
+      <v-btn to="/#prices" text>Цены</v-btn>
+      <v-btn :to="{ name: 'Questions' }" text>Вопросы</v-btn>
+      <v-btn :to="{ name: 'Contacts' }" text>Контакты</v-btn>
     </nav>
 
     <v-spacer></v-spacer>
