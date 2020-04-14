@@ -55,7 +55,7 @@
     <v-row>
       <v-row align="center">
         <v-col cols="6">
-          <v-img :src="require('@/assets/illustrations/snowball-maker.png')" />
+          <v-img :src="require('@/assets/illustrations/stuff.png')" />
         </v-col>
         <v-col cols="6">
           <strong>ГРУППОВЫЕ СОРЕВНОВАНИЯ</strong>

@@ -6,6 +6,7 @@
     <block-how-to />
     <block-testimonials />
     <block-setup />
+    <block-prices />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import BlockNewsletter from '@/components/BlockNewsletter.vue';
 import BlockHowTo from '@/components/BlockHowTo.vue';
 import BlockTestimonials from '@/components/BlockTestimonials.vue';
 import BlockSetup from '@/components/BlockSetup.vue';
+import BlockPrices from '@/components/BlockPrices.vue';
 
 export default {
   name: 'Home',
@@ -25,7 +27,8 @@ export default {
     BlockNewsletter,
     BlockHowTo,
     BlockTestimonials,
-    BlockSetup
+    BlockSetup,
+    BlockPrices
   }
 };
 </script>
