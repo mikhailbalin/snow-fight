@@ -4,8 +4,7 @@
       <v-row align="center">
         <v-col cols="6">
           <v-img
-            :src="require('../assets/illustrations/players-fight.png')"
-            max-width="100%"
+            :src="require('@/assets/illustrations/players-fight.png')"
           ></v-img>
         </v-col>
         <v-col cols="6">
