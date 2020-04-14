@@ -1,23 +1,16 @@
 <template>
   <v-app>
-    <div id="nav">
-      <router-link :to="{ name: 'Home' }">Home</router-link>|
-      <router-link :to="{ name: 'Contacts' }">Contacts</router-link>|
-      <router-link :to="{ name: 'Questions' }">Questions</router-link>
-    </div>
-
-    <v-content>
-      <router-view />
-    </v-content>
+    <app-layout />
   </v-app>
 </template>
 
 <script>
+// @ is an alias to /src
+import AppLayout from '@/components/AppLayout.vue';
+
 export default {
   name: 'App',
-
-  components: {},
-
+  components: { AppLayout },
   data: () => ({
     //
   })
