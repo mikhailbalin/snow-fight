@@ -1,18 +1,27 @@
 <template>
-  <div></div>
+  <div>
+    <v-img :src="imgPath"></v-img>
+    <h3>{{ numTitle }}</h3>
+    <p>{{ description }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      card: {
-        id: 1,
-        image: '',
-        count: 3,
-        info: ''
-      }
-    };
+  name: 'StatCard',
+  props: {
+    imgPath: {
+      type: String,
+      required: true
+    },
+    numTitle: {
+      type: Number,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    }
   }
 };
 </script>
