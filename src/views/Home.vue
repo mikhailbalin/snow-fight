@@ -7,6 +7,7 @@
     <block-testimonials />
     <block-setup />
     <block-prices />
+    <block-video />
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import BlockHowTo from '@/components/BlockHowTo.vue';
 import BlockTestimonials from '@/components/BlockTestimonials.vue';
 import BlockSetup from '@/components/BlockSetup.vue';
 import BlockPrices from '@/components/BlockPrices.vue';
+import BlockVideo from '@/components/BlockVideo.vue';
 
 export default {
   name: 'Home',
@@ -28,7 +30,8 @@ export default {
     BlockHowTo,
     BlockTestimonials,
     BlockSetup,
-    BlockPrices
+    BlockPrices,
+    BlockVideo
   }
 };
 </script>

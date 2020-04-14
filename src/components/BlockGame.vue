@@ -7,6 +7,7 @@
             :src="require('@/assets/illustrations/players-fight.png')"
           ></v-img>
         </v-col>
+
         <v-col cols="6">
           <h2>Что это?</h2>
           <p>

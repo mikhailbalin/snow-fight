@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-img :src="imgPath"></v-img>
+    <v-img v-if="imgPath" :src="imgPath" />
     <h3>{{ numTitle }}</h3>
     <p>{{ description }}</p>
   </div>
@@ -10,10 +10,7 @@
 export default {
   name: 'StatCard',
   props: {
-    imgPath: {
-      type: String,
-      required: true
-    },
+    imgPath: String,
     numTitle: {
       type: Number,
       required: true
