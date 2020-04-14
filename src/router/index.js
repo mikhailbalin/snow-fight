@@ -24,6 +24,16 @@ const routes = [
     name: 'Questions',
     component: () =>
       import(/* webpackChunkName: "questions" */ '../views/Questions.vue')
+  },
+  {
+    path: '/jobs',
+    name: 'Jobs',
+    component: () => import(/* webpackChunkName: "jobs" */ '../views/Jobs.vue')
+  },
+  {
+    path: '*',
+    component: () =>
+      import(/* webpackChunkName: "404" */ '../views/NotFound.vue')
   }
 ];
 
