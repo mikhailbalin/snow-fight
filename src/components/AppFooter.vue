@@ -1,29 +1,42 @@
 <template>
   <v-footer dark padless>
-    <v-card flat tile class="indigo lighten-1 white--text text-center">
-      <v-card-text>
-        <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
-          <v-icon size="24px">{{ icon }}</v-icon>
-        </v-btn>
-      </v-card-text>
-
-      <v-card-text class="white--text pt-0">
-        Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.
-        Mauris cursus commodo interdum. Praesent ut risus eget metus luctus
-        accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a
-        sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula
-        lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus
-        iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor
-        vel ut orci. Orci varius natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus.
-      </v-card-text>
+    <v-container>
+      <v-row>
+        <v-col col="6">
+          <div>О нас</div>
+          <p>
+            Снежные бои Юкигассен проводит команда специалистов, которые возьмут
+            на себя весь организационный процесс, а опытные судьи проследят за
+            выполнением правил игры и соблюдением техники безопасности.
+          </p>
+        </v-col>
+        <v-col col="3">
+          <div>Информация</div>
+          <v-btn :to="{ name: 'Questions' }" text>Вопросы</v-btn>
+          <v-btn :to="{ name: 'Jobs' }" text>Работа у нас</v-btn>
+          <v-btn :to="{ name: 'Contacts' }" text>Контакты</v-btn>
+          <v-btn :to="{ name: 'Privacy' }" text>Конфиденциальность</v-btn>
+        </v-col>
+        <v-col col="3">
+          <div>Следите за нами</div>
+          <v-btn
+            v-for="(social, idx) in socials"
+            :key="idx"
+            :color="social.color"
+            class="white--text"
+            fab
+            icon
+            small
+          >
+            <v-icon>{{ social.icon }}</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
 
       <v-divider></v-divider>
 
-      <v-card-text class="white--text">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-      </v-card-text>
-    </v-card>
+      {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+    </v-container>
   </v-footer>
 </template>
 
@@ -31,12 +44,19 @@
 export default {
   name: 'AppFooter',
   data: () => ({
-    icons: [
-      'fab fa-facebook',
-      'fab fa-twitter',
-      'fab fa-google-plus',
-      'fab fa-linkedin',
-      'fab fa-instagram'
+    socials: [
+      {
+        icon: 'fab fa-facebook',
+        color: 'indigo'
+      },
+      {
+        icon: 'fab fa-linkedin',
+        color: 'cyan darken-1'
+      },
+      {
+        icon: 'fab fa-instagram',
+        color: 'red lighten-3'
+      }
     ]
   })
 };
