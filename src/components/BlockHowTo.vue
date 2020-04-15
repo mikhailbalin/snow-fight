@@ -1,20 +1,14 @@
 <template>
-  <section class="px-6 py-12 my-md-2 my-lg-10" id="how-to-play">
+  <section class="px-6 py-12 my-md-2 my-lg-10 text-center" id="how-to-play">
     <v-container>
-      <v-row>
-        <v-col xl="8" offset-xl="2">
-          <h2>Как играть?</h2>
-          <p>
-            Две команды сталкиваются в настоящем снежном бою: закидывают друг
-            друга снежками, не нарушая при этом некоторых правил. Цель —
-            захватить флаг, либо выстоять бой, оставшись в большинстве. Играть
-            может каждый независимо от возраста и уровня подготовки. Наши судьи
-            всему научат!
-          </p>
+      <v-row class="mb-12">
+        <v-col lg="8" offset-lg="2" xl="6" offset-xl="3">
+          <h2 class="mb-2">{{ title }}</h2>
+          <p class="mb-0">{{ text }}</p>
         </v-col>
       </v-row>
 
-      <v-row>
+      <v-row class="mb-12">
         <v-col
           v-for="(stat, idx) in stats"
           :key="idx"
@@ -22,6 +16,7 @@
           md="3"
           xl="2"
           :offset-xl="stat.offset"
+          class="pb-10 pb-md-0"
           ><stat-card
             :imgPath="stat.imgPath"
             :numTitle="stat.numTitle"
@@ -29,7 +24,7 @@
         /></v-col>
       </v-row>
 
-      <v-btn large color="primary">Скачать правила</v-btn>
+      <v-btn large color="primary">{{ downloadRules }}</v-btn>
     </v-container>
   </section>
 </template>
@@ -42,6 +37,9 @@ export default {
   components: { StatCard },
   data() {
     return {
+      title: 'Как играть?',
+      text:
+        'Две команды сталкиваются в настоящем снежном бою: закидывают друг друга снежками, не нарушая при этом некоторых правил. Цель — захватить флаг, либо выстоять бой, оставшись в большинстве. Играть может каждый независимо от возраста и уровня подготовки. Наши судьи всему научат!',
       stats: [
         {
           imgPath: require('@/assets/illustrations/players.png'),
@@ -64,7 +62,8 @@ export default {
           numTitle: 90,
           description: 'снежков можно использовать в каждом периоде'
         }
-      ]
+      ],
+      downloadRules: 'Скачать правила'
     };
   }
 };

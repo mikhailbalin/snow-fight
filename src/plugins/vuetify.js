@@ -28,11 +28,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon); // Register component globa
 Vue.use(Vuetify);
 
 export default new Vuetify({
-  themes: {
-    light: {
-      primary: 'red'
-    }
-  },
   icons: {
     iconfont: 'faSvg',
     values: {

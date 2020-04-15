@@ -1,4 +1,7 @@
+@use './utils.scss';
+
 $body-font-family: 'Ubuntu', sans-serif;
+$heading-font-family: $body-font-family;
 
 $font-weights: (
   'thin': 100,
@@ -8,3 +11,5 @@ $font-weights: (
   'bold': 700,
   'black': 900
 );
+
+$blockquote-font-size: 28px;

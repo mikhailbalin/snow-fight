@@ -13,24 +13,21 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import '@/scss/variables.scss';
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-#nav {
-  padding: 30px;
+p {
+  font-size: 1rem;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+@media #{map-get($display-breakpoints, 'lg-and-up')} {
+  p {
+    font-size: 1.125rem;
+  }
 }
 </style>

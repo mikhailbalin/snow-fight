@@ -53,7 +53,7 @@
 
       <v-divider class="my-0 my-sm-12 grey lighten-1" />
 
-      <v-row align="center pt-12">
+      <v-row align="center" class="pt-12">
         <v-col class="d-block d-sm-none">
           <strong>{{ tournment.subtitle }}</strong>
           <h2>{{ tournment.title }}</h2>

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <app-header></app-header>
-    <v-content>
+    <v-content class="grey--text text--darken-1">
       <router-view />
     </v-content>
     <app-footer />
@@ -20,5 +20,3 @@ export default {
   }
 };
 </script>
-
-<style></style>
