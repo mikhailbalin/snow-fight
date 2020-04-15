@@ -1,7 +1,10 @@
 $body-font-family: 'Ubuntu', sans-serif;
 
-$container-max-widths: (
-  'md': 960px * 0.9375,
-  'lg': 1000px,
-  'xl': 1000px
+$font-weights: (
+  'thin': 100,
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'bold': 700,
+  'black': 900
 );

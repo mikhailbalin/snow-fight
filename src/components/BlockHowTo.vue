@@ -1,17 +1,27 @@
 <template>
-  <div>
+  <section class="px-6 py-12 my-md-2 my-lg-10" id="how-to-play">
     <v-container>
-      <h2>Как играть?</h2>
-
-      <p>
-        Две команды сталкиваются в настоящем снежном бою: закидывают друг друга
-        снежками, не нарушая при этом некоторых правил. Цель — захватить флаг,
-        либо выстоять бой, оставшись в большинстве. Играть может каждый
-        независимо от возраста и уровня подготовки. Наши судьи всему научат!
-      </p>
+      <v-row>
+        <v-col xl="8" offset-xl="2">
+          <h2>Как играть?</h2>
+          <p>
+            Две команды сталкиваются в настоящем снежном бою: закидывают друг
+            друга снежками, не нарушая при этом некоторых правил. Цель —
+            захватить флаг, либо выстоять бой, оставшись в большинстве. Играть
+            может каждый независимо от возраста и уровня подготовки. Наши судьи
+            всему научат!
+          </p>
+        </v-col>
+      </v-row>
 
       <v-row>
-        <v-col :cols="3" v-for="(stat, idx) in stats" :key="idx"
+        <v-col
+          v-for="(stat, idx) in stats"
+          :key="idx"
+          sm="6"
+          md="3"
+          xl="2"
+          :offset-xl="stat.offset"
           ><stat-card
             :imgPath="stat.imgPath"
             :numTitle="stat.numTitle"
@@ -21,7 +31,7 @@
 
       <v-btn large color="primary">Скачать правила</v-btn>
     </v-container>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -36,7 +46,8 @@ export default {
         {
           imgPath: require('@/assets/illustrations/players.png'),
           numTitle: 7,
-          description: 'игроков в каждой команде'
+          description: 'игроков в каждой команде',
+          offset: '2'
         },
         {
           imgPath: require('@/assets/illustrations/timer.png'),

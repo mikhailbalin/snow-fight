@@ -1,75 +1,78 @@
 <template>
-  <v-container>
-    <v-row>
+  <section class="px-6 py-12 my-md-2 my-lg-10" id="setup">
+    <v-container>
       <v-row align="center">
-        <v-col cols="6">
-          <h2>Площадка</h2>
-          <p>
-            Для игры требуется площадка длиной 36м и шириной 10м. Мы построим
-            корт на вашей территории, либо предложим свою — в черте города или
-            за его пределами.
-          </p>
+        <v-col class="d-block d-sm-none">
+          <h2>{{ space.title }}</h2>
         </v-col>
-        <v-col cols="6">
+
+        <v-col sm="6" lg="5" offset-lg="1" order-sm="2">
           <v-img :src="require('@/assets/illustrations/court.png')" />
         </v-col>
-      </v-row>
-    </v-row>
 
-    <v-row>
-      <v-row align="center">
-        <v-col cols="6">
+        <v-col sm="6" order-sm="1" class="text-left">
+          <h2 class="d-none d-sm-block">{{ space.title }}</h2>
+          <p>{{ space.text }}</p>
+        </v-col>
+      </v-row>
+
+      <v-row class="mt-10" align="center">
+        <v-col class="d-block d-sm-none">
+          <h2>{{ equipment.title }}</h2>
+        </v-col>
+
+        <v-col sm="6" lg="5">
           <v-img :src="require('@/assets/illustrations/equipment.png')" />
         </v-col>
-        <v-col cols="6">
-          <h2>Снаряжение</h2>
-          <p>Мы предоставим все необходимое для игры двух и более команд:</p>
+
+        <v-col sm="6" offset-lg="1" class="text-left">
+          <h2 class="d-none d-sm-block">{{ equipment.title }}</h2>
+          <p>{{ equipment.text }}</p>
           <ul>
-            <li>
-              Шлемы, разработанные в Японии специально для спортивных
-              соревнований Юкигассен
+            <li v-for="(item, idx) in equipment.list" :key="idx">
+              {{ item }}
             </li>
-            <li>Спортивные майки с номерами</li>
-            <li>Прессы для снежков</li>
           </ul>
         </v-col>
       </v-row>
-    </v-row>
 
-    <v-row>
-      <v-row align="center">
-        <v-col cols="6">
-          <h2>Снежки</h2>
-          <p>
-            Как слепить столько снежков за один раз? С помощью специальных
-            прессов! А на случай действительно холодной погоды у нас есть
-            тепловые пушки и тенты.
-          </p>
+      <v-row class="mt-10 pb-12" align="center">
+        <v-col class="d-block d-sm-none">
+          <h2>{{ snowballs.title }}</h2>
         </v-col>
-        <v-col cols="6">
+
+        <v-col sm="6" lg="5" offset-lg="1" order-sm="2">
           <v-img :src="require('@/assets/illustrations/snowball-maker.png')" />
         </v-col>
+
+        <v-col sm="6" order-sm="1" class="text-left">
+          <h2 class="d-none d-sm-block">{{ snowballs.title }}</h2>
+          <p>{{ snowballs.text }}</p>
+        </v-col>
       </v-row>
-    </v-row>
 
-    <v-divider></v-divider>
+      <v-divider class="my-12 grey lighten-1" />
 
-    <v-row>
-      <v-row align="center">
-        <v-col cols="6">
+      <v-row align="center pt-12">
+        <v-col class="d-block d-sm-none">
+          <strong>{{ tournment.subtitle }}</strong>
+          <h2>{{ tournment.title }}</h2>
+        </v-col>
+
+        <v-col sm="6" lg="5">
           <v-img :src="require('@/assets/illustrations/stuff.png')" />
         </v-col>
-        <v-col cols="6">
-          <strong>ГРУППОВЫЕ СОРЕВНОВАНИЯ</strong>
-          <h2>
-            Вы собираетесь поиграть в Юкигассен большой компанией, с коллегами?
-          </h2>
-          <p>Дополнительно мы предлагаем:</p>
+
+        <v-col sm="6" offset-lg="1" class="text-left">
+          <div class="d-none d-sm-block">
+            <strong>{{ tournment.subtitle }}</strong>
+            <h2>{{ tournment.title }}</h2>
+          </div>
+          <p>{{ tournment.text }}</p>
           <ul>
-            <li>Услуги DJ и ведущего, профессионального оператора</li>
-            <li>Кейтеринг и бары с напитками и едой</li>
-            <li>Освещение для ночных соревнований</li>
-            <li>Кубки для победителей</li>
+            <li v-for="(item, idx) in tournment.list" :key="idx">
+              {{ item }}
+            </li>
           </ul>
           <p>
             Напишите нам на почту info@snowfight.ru или воспользуйтесь формой
@@ -77,13 +80,46 @@
           </p>
         </v-col>
       </v-row>
-    </v-row>
-  </v-container>
+    </v-container>
+  </section>
 </template>
 
 <script>
 export default {
-  name: 'BlockSetup'
+  name: 'BlockSetup',
+  data: () => ({
+    space: {
+      title: 'Площадка',
+      text:
+        'Для игры требуется площадка длиной 36м и шириной 10м. Мы построим корт на вашей территории, либо предложим свою — в черте города или за его пределами.'
+    },
+    equipment: {
+      title: 'Снаряжение',
+      text: 'Мы предоставим все необходимое для игры двух и более команд:',
+      list: [
+        'Шлемы, разработанные в Японии специально для спортивных соревнований Юкигассен',
+        'Спортивные майки с номерами',
+        'Прессы для снежков'
+      ]
+    },
+    snowballs: {
+      title: 'Снежки',
+      text:
+        'Как слепить столько снежков за один раз? С помощью специальных прессов! А на случай действительно холодной погоды у нас есть тепловые пушки и тенты.'
+    },
+    tournment: {
+      subtitle: 'Групповые соревнования',
+      title:
+        'Вы собираетесь поиграть в Юкигассен большой компанией, с коллегами?',
+      text: 'Дополнительно мы предлагаем:',
+      list: [
+        'Услуги DJ и ведущего, профессионального оператора',
+        'Кейтеринг и бары с напитками и едой',
+        'Освещение для ночных соревнований',
+        'Кубки для победителей'
+      ]
+    }
+  })
 };
 </script>
 

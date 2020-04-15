@@ -1,5 +1,5 @@
 <template>
-  <div class="block">
+  <section class="px-6 py-12 my-md-2 my-lg-10">
     <v-container>
       <v-row>
         <v-col col="6">
@@ -34,7 +34,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </div>
+  </section>
 </template>
 
 <script>

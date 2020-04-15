@@ -1,14 +1,16 @@
 <template>
-  <div>
+  <section class="px-6 py-12 my-md-2 my-lg-10" id="what-is-this">
     <v-container>
       <v-row align="center">
-        <v-col cols="6">
+        <v-col sm="6" xl="4" offset-xl="2" class="d-none d-sm-block">
           <v-img
             :src="require('@/assets/illustrations/players-fight.png')"
+            max-height="400"
+            contain
           ></v-img>
         </v-col>
 
-        <v-col cols="6">
+        <v-col sm="6" xl="4" class="text-center text-sm-left">
           <h2>Что это?</h2>
           <p>
             ЮКИГАССЕН — это зимняя командная игра, зрелищная и азартная, которая
@@ -18,7 +20,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </div>
+  </section>
 </template>
 
 <script>
