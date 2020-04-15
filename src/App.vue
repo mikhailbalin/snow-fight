@@ -1,7 +1,5 @@
 <template>
-  <v-app>
-    <app-layout />
-  </v-app>
+  <app-layout />
 </template>
 
 <script>
@@ -10,10 +8,7 @@ import AppLayout from '@/components/AppLayout.vue';
 
 export default {
   name: 'App',
-  components: { AppLayout },
-  data: () => ({
-    //
-  })
+  components: { AppLayout }
 };
 </script>
 
