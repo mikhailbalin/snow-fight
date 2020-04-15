@@ -6,11 +6,11 @@
           <h2>{{ space.title }}</h2>
         </v-col>
 
-        <v-col sm="6" lg="5" offset-lg="1" order-sm="2">
+        <v-col sm="6" lg="5" offset-lg="1" xl="4" order-sm="2">
           <v-img :src="require('@/assets/illustrations/court.png')" />
         </v-col>
 
-        <v-col sm="6" order-sm="1" class="text-left">
+        <v-col sm="6" xl="4" offset-xl="2" order-sm="1" class="text-left">
           <h2 class="d-none d-sm-block">{{ space.title }}</h2>
           <p>{{ space.text }}</p>
         </v-col>
@@ -21,11 +21,11 @@
           <h2>{{ equipment.title }}</h2>
         </v-col>
 
-        <v-col sm="6" lg="5">
+        <v-col sm="6" lg="5" xl="4" offset-xl="1">
           <v-img :src="require('@/assets/illustrations/equipment.png')" />
         </v-col>
 
-        <v-col sm="6" offset-lg="1" class="text-left">
+        <v-col sm="6" offset-lg="1" xl="4" class="text-left">
           <h2 class="d-none d-sm-block">{{ equipment.title }}</h2>
           <p>{{ equipment.text }}</p>
           <ul>
@@ -41,17 +41,17 @@
           <h2>{{ snowballs.title }}</h2>
         </v-col>
 
-        <v-col sm="6" lg="5" offset-lg="1" order-sm="2">
+        <v-col sm="6" lg="5" offset-lg="1" xl="4" order-sm="2">
           <v-img :src="require('@/assets/illustrations/snowball-maker.png')" />
         </v-col>
 
-        <v-col sm="6" order-sm="1" class="text-left">
+        <v-col sm="6" xl="4" offset-xl="2" order-sm="1" class="text-left">
           <h2 class="d-none d-sm-block">{{ snowballs.title }}</h2>
           <p>{{ snowballs.text }}</p>
         </v-col>
       </v-row>
 
-      <v-divider class="my-12 grey lighten-1" />
+      <v-divider class="my-0 my-sm-12 grey lighten-1" />
 
       <v-row align="center pt-12">
         <v-col class="d-block d-sm-none">
@@ -59,11 +59,11 @@
           <h2>{{ tournment.title }}</h2>
         </v-col>
 
-        <v-col sm="6" lg="5">
+        <v-col sm="6" lg="5" xl="4" offset-xl="1">
           <v-img :src="require('@/assets/illustrations/stuff.png')" />
         </v-col>
 
-        <v-col sm="6" offset-lg="1" class="text-left">
+        <v-col sm="6" offset-lg="1" xl="4" class="text-left">
           <div class="d-none d-sm-block">
             <strong>{{ tournment.subtitle }}</strong>
             <h2>{{ tournment.title }}</h2>
