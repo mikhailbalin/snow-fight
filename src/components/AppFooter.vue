@@ -23,12 +23,10 @@
             v-for="(social, idx) in socials"
             :key="idx"
             :color="social.color"
+            text
             class="white--text"
-            fab
-            icon
-            small
           >
-            <v-icon>{{ social.icon }}</v-icon>
+            <font-awesome-icon :icon="['fab', social.icon]" />
           </v-btn>
         </v-col>
       </v-row>
@@ -46,15 +44,15 @@ export default {
   data: () => ({
     socials: [
       {
-        icon: 'fab fa-facebook',
+        icon: 'twitter',
         color: 'indigo'
       },
       {
-        icon: 'fab fa-linkedin',
+        icon: 'facebook',
         color: 'cyan darken-1'
       },
       {
-        icon: 'fab fa-instagram',
+        icon: 'instagram',
         color: 'red lighten-3'
       }
     ]
