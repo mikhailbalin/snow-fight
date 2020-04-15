@@ -24,7 +24,9 @@
         /></v-col>
       </v-row>
 
-      <v-btn large color="primary">{{ downloadRules }}</v-btn>
+      <v-btn x-large :block="$vuetify.breakpoint.xsOnly" color="primary">
+        {{ downloadRules }}
+      </v-btn>
     </v-container>
   </section>
 </template>
