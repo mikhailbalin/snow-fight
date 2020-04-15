@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-img v-if="imgPath" :src="imgPath" />
+    <v-img v-if="imgPath" :src="imgPath" max-height="150" contain />
     <h3>{{ numTitle }}</h3>
     <p>{{ description }}</p>
   </div>
