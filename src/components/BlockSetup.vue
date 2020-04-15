@@ -52,6 +52,8 @@
       </v-row>
     </v-row>
 
+    <v-divider></v-divider>
+
     <v-row>
       <v-row align="center">
         <v-col cols="6">
