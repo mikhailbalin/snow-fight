@@ -1,6 +1,10 @@
 <template>
   <v-app-bar class="grey lighten-5 px-4" app hide-on-scroll fixed>
-    <v-toolbar-title><app-logo /></v-toolbar-title>
+    <v-toolbar-title>
+      <router-link :to="{ name: 'Home' }">
+        <app-logo />
+      </router-link>
+    </v-toolbar-title>
 
     <nav class="d-none d-md-block">
       <v-btn to="/#what-is-this" text>Что это?</v-btn>
@@ -12,7 +16,10 @@
     </nav>
 
     <v-spacer></v-spacer>
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+    <v-btn icon color="primary" class="d-md-none">
+      <font-awesome-icon class="app-bar-nav-btn" :icon="['fas', 'bars']" />
+    </v-btn>
   </v-app-bar>
 </template>
 
@@ -25,4 +32,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.app-bar-nav-btn {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+</style>

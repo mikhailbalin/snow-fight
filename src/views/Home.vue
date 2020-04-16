@@ -3,14 +3,14 @@
     <block-slider />
     <block-game />
     <block-newsletter v-intersect="showMoreContent" />
-    <template v-if="loadNewContent">
-      <block-how-to />
-      <block-testimonials />
-      <block-setup />
-      <block-prices />
-      <block-video />
-      <block-faq />
-    </template>
+    <!-- <template v-if="loadNewContent"> -->
+    <block-how-to />
+    <block-testimonials />
+    <block-setup />
+    <block-prices />
+    <block-video />
+    <block-faq />
+    <!-- </template> -->
   </div>
 </template>
 

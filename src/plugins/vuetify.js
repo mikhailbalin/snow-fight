@@ -15,6 +15,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import AwesomeIcon from '@/components/AwesomeIcon.vue';
 
+Vue.component('font-awesome-icon', FontAwesomeIcon); // Register component globally
 // Include needed icons
 library.add(
   faChevronLeft,
@@ -25,7 +26,6 @@ library.add(
   faInstagram,
   faBars
 );
-Vue.component('font-awesome-icon', FontAwesomeIcon); // Register component globally
 
 Vue.use(Vuetify);
 
