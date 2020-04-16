@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <app-side-nav />
+    <app-drawer />
     <app-header></app-header>
     <v-content class="grey--text text--darken-1">
       <router-view />
@@ -12,14 +12,14 @@
 <script>
 import AppHeader from '@/components/AppHeader.vue';
 import AppFooter from '@/components/AppFooter.vue';
-import AppSideNav from '@/components/AppSideNav.vue';
+import AppDrawer from '@/components/AppDrawer.vue';
 
 export default {
   name: 'AppLayout',
   components: {
     AppHeader,
     AppFooter,
-    AppSideNav
+    AppDrawer
   }
 };
 </script>
