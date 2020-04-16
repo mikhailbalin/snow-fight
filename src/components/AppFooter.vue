@@ -10,6 +10,7 @@
             выполнением правил игры и соблюдением техники безопасности.
           </p>
         </v-col>
+
         <v-col col="3">
           <div>Информация</div>
           <v-btn :to="{ name: 'Questions' }" text>Вопросы</v-btn>
@@ -17,6 +18,7 @@
           <v-btn :to="{ name: 'Contacts' }" text>Контакты</v-btn>
           <v-btn :to="{ name: 'Privacy' }" text>Конфиденциальность</v-btn>
         </v-col>
+
         <v-col col="3">
           <div>Следите за нами</div>
           <v-btn

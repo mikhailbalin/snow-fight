@@ -65,7 +65,7 @@
 
         <v-col sm="6" offset-lg="1" xl="4" class="text-left">
           <div class="d-none d-sm-block">
-            <strong>{{ tournment.subtitle }}</strong>
+            <strong class="app-subtitle">{{ tournment.subtitle }}</strong>
             <h2 class="mb-2">{{ tournment.title }}</h2>
           </div>
           <p>{{ tournment.text }}</p>

@@ -1,15 +1,18 @@
 <template>
-  <section class="px-6 py-12 my-md-2 my-lg-10">
-    <v-container>
-      <v-row>
-        <v-col col="6">
-          <strong>Чемпионат</strong>
-          <h2>Битва между отелями</h2>
-          <p>
+  <section class="px-6 py-12 primary white--text text-center text-md-left">
+    <v-container class="my-md-2 my-lg-10">
+      <v-row align="center">
+        <v-col cols="12" md="6" class="">
+          <strong class="app-subtitle white--text">Чемпионат</strong>
+
+          <h2 class="mb-2">Битва между отелями</h2>
+
+          <p class="mb-0 px-sm-9 px-md-0">
             Зимний чемпионат в горнолыжном комплексе Охта-Парк с командами
             отелей Санкт-Петербурга.
           </p>
-          <v-row>
+
+          <v-row class="d-none d-sm-flex px-sm-9 px-md-0">
             <v-col col="3" v-for="(stat, idx) in stats" :key="idx">
               <stat-card
                 :numTitle="stat.title"
@@ -17,13 +20,20 @@
               />
             </v-col>
           </v-row>
+
+          <v-btn large outlined :to="fbLink" class="mt-6" color="white">
+            <font-awesome-icon class="mr-3" :icon="['fab', 'facebook']" />
+            <span class="d-inline-block text-truncate app-fb-link">
+              {{ fbLink.slice(12) }}
+            </span>
+          </v-btn>
         </v-col>
 
-        <v-col col="6">
+        <v-col cols="12" md="6">
           <div class="embed-wrapper">
             <iframe
               class="embed"
-              src="https://player.vimeo.com/video/153114564?loop=1&color=E77460&title=0&byline=0&portrait=0"
+              :src="videoSrc"
               width="1280"
               height="720"
               webkitallowfullscreen
@@ -45,6 +55,10 @@ export default {
   components: { StatCard },
   data() {
     return {
+      videoSrc:
+        'https://player.vimeo.com/video/153114564?loop=1&color=E77460&title=0&byline=0&portrait=0',
+      fbLink:
+        'https://www.facebook.com/snowfightrussia/videos/606038066164038/',
       stats: [
         {
           title: 11,
@@ -64,11 +78,7 @@ export default {
 };
 </script>
 
-<style scoped>
-.block {
-  background-color: #4688f1;
-}
-
+<style scoped lang="scss">
 .embed-wrapper {
   position: relative;
   display: block;
@@ -86,5 +96,15 @@ export default {
   height: 100%;
   width: 100%;
   border: 0;
+}
+
+.app-fb-link {
+  max-width: 150px;
+}
+
+@media #{map-get($display-breakpoints, 'sm-and-up')} {
+  .app-fb-link {
+    max-width: 300px;
+  }
 }
 </style>

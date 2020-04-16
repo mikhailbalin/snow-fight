@@ -1,10 +1,7 @@
 <template>
-  <section
-    class="px-6 py-12 my-md-2 my-lg-10 grey lighten-5 text-center"
-    id="prices"
-  >
-    <v-container>
-      <h2 class="mb-12 mt-8">{{ title }}</h2>
+  <section class="px-6 py-12 grey lighten-5 text-center" id="prices">
+    <v-container class="my-md-2 my-lg-10">
+      <h2 class="mb-12">{{ title }}</h2>
 
       <v-row>
         <v-col cols="12" md="4" v-for="(item, idx) in prices" :key="idx">
@@ -88,7 +85,7 @@
         </v-col>
       </v-row>
 
-      <div class="grey--text text--lighten-1 mt-12 pb-8">
+      <div class="grey--text text--lighten-1 mt-12">
         <sup>1</sup>Если команды набрали одинаковое количество очков, игроки
         будут должны совершить по броску в мишень до выявления победителя. См.
         правила.
