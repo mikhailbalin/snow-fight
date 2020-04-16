@@ -2,13 +2,15 @@
   <div>
     <block-slider />
     <block-game />
-    <block-newsletter />
-    <block-how-to />
-    <block-testimonials />
-    <block-setup />
-    <block-prices />
-    <block-video />
-    <block-faq />
+    <block-newsletter v-intersect="showMoreContent" />
+    <template v-if="loadNewContent">
+      <block-how-to />
+      <block-testimonials />
+      <block-setup />
+      <block-prices />
+      <block-video />
+      <block-faq />
+    </template>
   </div>
 </template>
 
@@ -35,6 +37,15 @@ export default {
     BlockPrices,
     BlockVideo,
     BlockFaq
+  },
+  data: () => ({
+    loadNewContent: false
+  }),
+  methods: {
+    showMoreContent(entries) {
+      // TODO check if Intersection observer works
+      this.loadNewContent = entries[0].isIntersecting;
+    }
   }
 };
 </script>

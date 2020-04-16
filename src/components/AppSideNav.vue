@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer :value="true" :fixed="true" temporary>
+  <v-navigation-drawer :value="false" :fixed="true" temporary>
     <v-list nav dense>
       <v-list-item-group active-class="deep-purple--text text--accent-4">
         <v-list-item>
