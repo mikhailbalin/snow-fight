@@ -30,4 +30,17 @@ p {
     font-size: 1.125rem;
   }
 }
+
+.app-subtitle {
+  color: #bec8ce;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.height-full {
+  height: 100%;
+}
 </style>
