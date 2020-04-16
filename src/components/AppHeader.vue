@@ -2,7 +2,7 @@
   <v-app-bar class="grey lighten-5 px-4" app hide-on-scroll fixed>
     <v-toolbar-title><app-logo /></v-toolbar-title>
 
-    <nav>
+    <nav class="d-none d-md-block">
       <v-btn to="/#what-is-this" text>Что это?</v-btn>
       <v-btn to="/#how-to-play" text>Как играть?</v-btn>
       <v-btn to="/#setup" text>Организация</v-btn>
@@ -12,7 +12,7 @@
     </nav>
 
     <v-spacer></v-spacer>
-    <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
+    <v-app-bar-nav-icon></v-app-bar-nav-icon>
   </v-app-bar>
 </template>
 

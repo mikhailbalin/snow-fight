@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   faChevronRight,
   faChevronLeft,
-  faChevronDown
+  faChevronDown,
+  faBars
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faTwitter,
@@ -21,7 +22,8 @@ library.add(
   faChevronDown,
   faTwitter,
   faFacebook,
-  faInstagram
+  faInstagram,
+  faBars
 );
 Vue.component('font-awesome-icon', FontAwesomeIcon); // Register component globally
 
@@ -54,6 +56,12 @@ export default new Vuetify({
         component: AwesomeIcon,
         props: {
           icon: ['fas', 'chevron-down']
+        }
+      },
+      bars: {
+        component: AwesomeIcon,
+        props: {
+          icon: ['fas', 'bars']
         }
       }
     }
