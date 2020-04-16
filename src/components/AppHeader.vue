@@ -7,17 +7,12 @@
     </v-toolbar-title>
 
     <nav class="d-none d-md-block">
-      <v-btn to="/#what-is-this" text>Что это?</v-btn>
-      <v-btn to="/#how-to-play" text>Как играть?</v-btn>
-      <v-btn to="/#setup" text>Организация</v-btn>
-      <v-btn to="/#prices" text>Цены</v-btn>
-      <v-btn :to="{ name: 'Questions' }" text>Вопросы</v-btn>
-      <v-btn :to="{ name: 'Contacts' }" text>Контакты</v-btn>
+      <app-navigation />
     </nav>
 
     <v-spacer></v-spacer>
 
-    <v-btn icon color="primary" class="d-md-none">
+    <v-btn icon color="primary" class="d-md-none" @click="openSideNav">
       <font-awesome-icon class="app-bar-nav-btn" :icon="['fas', 'bars']" />
     </v-btn>
   </v-app-bar>
@@ -25,10 +20,16 @@
 
 <script>
 import AppLogo from '@/components/AppLogo.vue';
+import AppNavigation from '@/components/AppNavigation.vue';
 
 export default {
   name: 'AppHeader',
-  components: { AppLogo }
+  components: { AppLogo, AppNavigation },
+  methods: {
+    openSideNav() {
+      this.$store.dispatch('toggleSideNav');
+    }
+  }
 };
 </script>
 
