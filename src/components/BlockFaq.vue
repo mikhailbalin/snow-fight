@@ -1,36 +1,59 @@
 <template>
-  <div>
-    <v-container>
-      <h2>Часто задаваемые вопросы</h2>
+  <section class="px-6 py-12 text-center">
+    <v-container class="my-md-2 my-lg-10">
+      <h2 class="mb-12">{{ title }}</h2>
 
-      <v-expansion-panels :multiple="true" :flat="true">
-        <v-row>
-          <v-col col="6" v-for="(faqCol, idx) in faqCols" :key="idx">
-            <v-expansion-panel v-for="(item, i) in faqCol" :key="i">
-              <v-expansion-panel-header>
-                {{ item.title }}
+      <v-row class="text-left">
+        <v-col
+          class="py-0"
+          cols="12"
+          md="6"
+          v-for="(faqCol, idx) in faqCols"
+          :key="idx"
+        >
+          <v-expansion-panels multiple flat>
+            <v-expansion-panel
+              v-for="(item, i) in faqCol"
+              :key="i"
+              active-class="app-panel-expanded"
+            >
+              <v-expansion-panel-header class="d-flex">
+                <div class="app-panel-title order-2 grey--text text--darken-1">
+                  {{ item.title }}
+                </div>
+                <template #actions>
+                  <font-awesome-icon
+                    class="mr-3 app-faq-icon"
+                    :icon="['fas', 'chevron-down']"
+                  />
+                </template>
               </v-expansion-panel-header>
 
               <v-expansion-panel-content>
-                {{ item.description }}
+                <div class="grey--text text--darken-1 pl-7">
+                  {{ item.description }}
+                </div>
               </v-expansion-panel-content>
             </v-expansion-panel>
-          </v-col>
-        </v-row>
-      </v-expansion-panels>
+          </v-expansion-panels>
+        </v-col>
+      </v-row>
 
-      <p>
-        Не нашли ответа на интересующий вас вопрос? Пожалуйста, посмотрите все
-        вопросы.
+      <p class="mt-12">
+        Не нашли ответа на интересующий вас вопрос? Пожалуйста,
+        <router-link :to="{ name: 'Questions' }">
+          посмотрите все вопросы</router-link
+        >.
       </p>
     </v-container>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: 'BlockFaq',
   data: () => ({
+    title: 'Часто задаваемые вопросы',
     faqCols: [
       [
         {
@@ -69,4 +92,24 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.app-faq-icon {
+  transform: rotate(-90deg);
+  transition: transform 250ms;
+  path {
+    fill: #f4b171;
+  }
+}
+
+.app-panel-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.app-panel-expanded {
+  .app-faq-icon {
+    transform: rotate(0deg);
+  }
+}
+</style>

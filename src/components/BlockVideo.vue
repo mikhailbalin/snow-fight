@@ -21,7 +21,13 @@
             </v-col>
           </v-row>
 
-          <v-btn large outlined :to="fbLink" class="mt-6" color="white">
+          <v-btn
+            large
+            outlined
+            :to="fbLink"
+            class="mt-6 d-none d-md-inline-flex"
+            color="white"
+          >
             <font-awesome-icon class="mr-3" :icon="['fab', 'facebook']" />
             <span class="d-inline-block text-truncate app-fb-link">
               {{ fbLink.slice(12) }}
@@ -41,6 +47,19 @@
               allowfullscreen
             ></iframe>
           </div>
+
+          <v-btn
+            large
+            outlined
+            :to="fbLink"
+            class="mt-6 d-inline-flex d-md-none"
+            color="white"
+          >
+            <font-awesome-icon class="mr-3" :icon="['fab', 'facebook']" />
+            <span class="d-inline-block text-truncate app-fb-link">
+              {{ fbLink.slice(12) }}
+            </span>
+          </v-btn>
         </v-col>
       </v-row>
     </v-container>

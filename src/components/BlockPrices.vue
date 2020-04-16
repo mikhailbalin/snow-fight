@@ -74,9 +74,9 @@
                   <p class="mb-0">
                     Чтобы получить полную информацию по ценам для вашего
                     мероприятия, пожалуйста
-                    <v-btn class="primary mt-4" :to="{ name: 'Contacts' }"
-                      >свяжитесь с нами</v-btn
-                    >
+                    <v-btn class="primary mt-4" :to="{ name: 'Contacts' }">
+                      свяжитесь с нами
+                    </v-btn>
                   </p>
                 </div>
               </div>
