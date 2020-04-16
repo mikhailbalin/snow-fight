@@ -1,6 +1,6 @@
 <template>
-  <v-app-bar color="accent-4" app hide-on-scroll fixed>
-    <v-toolbar-title>Page title</v-toolbar-title>
+  <v-app-bar class="grey lighten-5 px-4" app hide-on-scroll fixed>
+    <v-toolbar-title><app-logo /></v-toolbar-title>
 
     <nav>
       <v-btn to="/#what-is-this" text>Что это?</v-btn>
@@ -17,8 +17,11 @@
 </template>
 
 <script>
+import AppLogo from '@/components/AppLogo.vue';
+
 export default {
-  name: 'AppHeader'
+  name: 'AppHeader',
+  components: { AppLogo }
 };
 </script>
 
