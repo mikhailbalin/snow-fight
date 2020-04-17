@@ -5,7 +5,7 @@
 
       <v-form v-model="formValidity">
         <v-row>
-          <v-col col="12" sm="4" offset="2">
+          <v-col cols="12" sm="4" offset-sm="2" class="pb-0 pb-sm-3">
             <v-text-field
               label="Почта"
               type="email"
@@ -19,14 +19,15 @@
             />
           </v-col>
 
-          <v-col class="text-left" col="12" sm="6">
+          <v-col class="text-left pt-0 pt-sm-3" cols="12" sm="6">
             <v-btn
               large
               type="submit"
               color="primary"
+              :block="$vuetify.breakpoint.xsOnly"
               :disabled="!formValidity"
             >
-              Подписаться на новости
+              Подписаться <span class="d-none d-md-inline">на новости</span>
             </v-btn>
           </v-col>
         </v-row>
@@ -44,7 +45,7 @@
 
 <script>
 export default {
-  name: 'Newsletter',
+  name: 'BlockNewsletter',
   data: () => ({
     email: '',
     emailRules: [
