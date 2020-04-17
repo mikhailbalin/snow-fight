@@ -1,5 +1,5 @@
 <template>
-  <section class="px-6 py-12 grey lighten-5 text-center" id="prices">
+  <section class="px-sm-6 py-12 grey lighten-5 text-center" id="prices">
     <v-container class="my-md-2 my-lg-10">
       <h2 class="mb-12">{{ title }}</h2>
 
@@ -41,10 +41,10 @@
               </div>
 
               <div
-                class="px-8 pt-8 pb-12"
+                class="px-8 pt-8 pb-12 d-block"
                 :class="{
                   'height-full': !item.сonditions,
-                  'd-flex': !item.сonditions,
+                  'd-sm-flex': !item.сonditions,
                   'align-center': !item.сonditions
                 }"
               >
@@ -74,8 +74,9 @@
                   <p class="mb-0">
                     Чтобы получить полную информацию по ценам для вашего
                     мероприятия, пожалуйста
+                    <br />
                     <v-btn class="primary mt-4" :to="{ name: 'Contacts' }">
-                      свяжитесь с нами
+                      напишите <span class="d-none d-sm-inline">нам</span>
                     </v-btn>
                   </p>
                 </div>
@@ -85,7 +86,7 @@
         </v-col>
       </v-row>
 
-      <div class="grey--text text--lighten-1 mt-12">
+      <div class="grey--text text--lighten-1 mt-12 px-6 px-sm-0">
         <sup>1</sup>Если команды набрали одинаковое количество очков, игроки
         будут должны совершить по броску в мишень до выявления победителя. См.
         правила.
