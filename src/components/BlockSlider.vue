@@ -1,11 +1,11 @@
 <template>
-  <v-carousel cycle height="80vh" hide-delimiters>
-    <v-carousel-item v-for="(slide, i) in slides" :key="i">
-      <v-sheet tile height="100%">
+  <v-carousel cycle height="80vh" :show-arrows="false">
+    <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide.src">
+      <!-- <v-sheet tile height="100%">
         <v-row class="fill-height" align="center" justify="center">
-          <div class="display-3">{{ slide }} Slide</div>
+          <v-img src="https://picsum.photos/510/300?random" />
         </v-row>
-      </v-sheet>
+      </v-sheet> -->
     </v-carousel-item>
   </v-carousel>
 </template>
@@ -15,14 +15,11 @@ export default {
   name: 'BlockSlider',
   data() {
     return {
-      colors: [
-        'indigo',
-        'warning',
-        'pink darken-2',
-        'red lighten-1',
-        'deep-purple accent-4'
-      ],
-      slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth']
+      slides: [
+        { src: '/images/carousel-1.jpg' },
+        { src: '/images/carousel-2.jpg' },
+        { src: '/images/carousel-3.jpg' }
+      ]
     };
   }
 };

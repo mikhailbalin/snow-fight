@@ -6,7 +6,8 @@ import {
   faChevronRight,
   faChevronLeft,
   faChevronDown,
-  faBars
+  faBars,
+  faCircle
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faTwitter,
@@ -24,7 +25,8 @@ library.add(
   faTwitter,
   faFacebook,
   faInstagram,
-  faBars
+  faBars,
+  faCircle
 );
 
 Vue.use(Vuetify);
@@ -62,6 +64,12 @@ export default new Vuetify({
         component: AwesomeIcon,
         props: {
           icon: ['fas', 'bars']
+        }
+      },
+      circle: {
+        component: AwesomeIcon,
+        props: {
+          icon: ['fas', 'circle']
         }
       }
     }
