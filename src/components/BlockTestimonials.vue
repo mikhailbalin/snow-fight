@@ -2,7 +2,7 @@
   <section class="grey lighten-5 px-6 py-12 text-center">
     <v-container>
       <v-row>
-        <v-col xl="8" offset-xl="2">
+        <v-col lg="8" offset-lg="2" xl="6" offset-xl="3">
           <blockquote class="app-blockquote">
             {{ quote }}
             <cite class="app-cite mt-8">{{ cite }}</cite>
