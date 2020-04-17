@@ -24,8 +24,14 @@
         /></v-col>
       </v-row>
 
-      <v-btn x-large :block="$vuetify.breakpoint.xsOnly" color="primary">
-        {{ downloadRules }}
+      <v-btn
+        x-large
+        :to="downloadRules.link"
+        target="_blank"
+        :block="$vuetify.breakpoint.xsOnly"
+        color="primary"
+      >
+        {{ downloadRules.text }}
       </v-btn>
     </v-container>
   </section>
@@ -65,7 +71,10 @@ export default {
           description: 'снежков можно использовать в каждом периоде'
         }
       ],
-      downloadRules: 'Скачать правила'
+      downloadRules: {
+        text: 'Скачать правила',
+        link: 'yukigassen_rules.pdf'
+      }
     };
   }
 };
