@@ -24,7 +24,8 @@
           <v-btn
             large
             outlined
-            :to="fbLink"
+            :href="fbLink"
+            target="_blank"
             class="mt-6 d-none d-md-inline-flex"
             color="white"
           >
@@ -51,7 +52,8 @@
           <v-btn
             large
             outlined
-            :to="fbLink"
+            :href="fbLink"
+            target="_blank"
             class="mt-6 d-inline-flex d-md-none"
             color="white"
           >
@@ -76,8 +78,7 @@ export default {
     return {
       videoSrc:
         'https://player.vimeo.com/video/153114564?loop=1&color=E77460&title=0&byline=0&portrait=0',
-      fbLink:
-        'https://www.facebook.com/snowfightrussia/videos/606038066164038/',
+      fbLink: 'https://www.facebook.com/snowfightrussia/videos/606038066164038',
       stats: [
         {
           title: 11,
