@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -66,7 +67,7 @@ export default new Vuetify({
           icon: ['fas', 'bars']
         }
       },
-      circle: {
+      delimiter: {
         component: AwesomeIcon,
         props: {
           icon: ['fas', 'circle']
