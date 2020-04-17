@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="grey lighten-5 px-4" app hide-on-scroll fixed>
+  <v-app-bar class="grey lighten-5 px-sm-4" app hide-on-scroll fixed>
     <v-toolbar-title>
       <router-link :to="{ name: 'Home' }">
         <app-logo />

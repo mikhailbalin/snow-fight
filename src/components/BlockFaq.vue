@@ -1,5 +1,5 @@
 <template>
-  <section class="px-6 py-12 text-center">
+  <section class="px-sm-6 py-12 text-center">
     <v-container class="my-md-2 my-lg-10">
       <h2 class="mb-12">{{ title }}</h2>
 
@@ -39,7 +39,7 @@
         </v-col>
       </v-row>
 
-      <p class="mt-12">
+      <p class="px-6 px-md-0 mt-12">
         Не нашли ответа на интересующий вас вопрос? Пожалуйста,
         <router-link :to="{ name: 'Questions' }">
           посмотрите все вопросы</router-link
