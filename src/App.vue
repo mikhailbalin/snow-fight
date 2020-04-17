@@ -39,8 +39,4 @@ p {
   line-height: 1.2;
   text-transform: uppercase;
 }
-
-.height-full {
-  height: 100%;
-}
 </style>

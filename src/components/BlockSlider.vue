@@ -1,7 +1,7 @@
 <template>
-  <v-carousel cycle height="400" hide-delimiters>
+  <v-carousel cycle height="80vh" hide-delimiters>
     <v-carousel-item v-for="(slide, i) in slides" :key="i">
-      <v-sheet :color="colors[i]" height="100%">
+      <v-sheet tile height="100%">
         <v-row class="fill-height" align="center" justify="center">
           <div class="display-3">{{ slide }} Slide</div>
         </v-row>

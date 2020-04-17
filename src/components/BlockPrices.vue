@@ -6,7 +6,7 @@
       <v-row>
         <v-col cols="12" md="4" v-for="(item, idx) in prices" :key="idx">
           <div
-            class="pa-2 height-full"
+            class="pa-2 fill-height"
             :class="{
               grey: idx !== 1,
               'lighten-4': idx !== 1,
@@ -14,7 +14,7 @@
               'elevation-10': idx === 1
             }"
           >
-            <v-card flat outlined class="height-full">
+            <v-card flat outlined class="fill-height">
               <div
                 v-if="item.сonditions"
                 class="pa-6 pb-12"
@@ -43,7 +43,7 @@
               <div
                 class="px-8 pt-8 pb-12 d-block"
                 :class="{
-                  'height-full': !item.сonditions,
+                  'fill-height': !item.сonditions,
                   'd-sm-flex': !item.сonditions,
                   'align-center': !item.сonditions
                 }"
