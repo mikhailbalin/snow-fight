@@ -29,7 +29,6 @@
 
 <script>
 export default {
-  name: 'NotFound',
-  components: {}
+  name: 'NotFound'
 };
 </script>
