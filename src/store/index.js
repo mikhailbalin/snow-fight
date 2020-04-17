@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    sideNavOpen: false
+    sideNavOpen: false,
+    tel: '+7 (931) 234-06-66'
   },
   mutations: {
     TOGGLE_SIDE_NAV(state) {

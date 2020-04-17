@@ -34,8 +34,8 @@
 
             И естественно вознаграждение гарантировано! Если вы
             заинтересовались, оставляйте ваши контакты через форму или звоните
-            по тел. <a href="tel:+7 (931) 234-06-66">+7 (931) 234-06-66</a> и мы
-            расскажем обо всем подробнее.
+            по тел. <a :href="`tel:${tel}`">{{ tel }}</a> и мы расскажем обо
+            всем подробнее.
           </v-col>
         </v-row>
       </v-container>
@@ -45,10 +45,12 @@
 
 <script>
 import AppBanner from '@/components/AppBanner.vue';
+import { mapState } from 'vuex';
 
 export default {
   name: 'Jobs',
   components: { AppBanner },
+  computed: mapState(['tel']),
   data: () => ({
     items: [
       {
