@@ -19,8 +19,8 @@
             <v-btn class="flex-grow-0" :to="{ name: 'Questions' }" text>
               Вопросы
             </v-btn>
-            <v-btn :to="{ name: 'Jobs' }" text>Работа у нас</v-btn>
             <v-btn :to="{ name: 'Contacts' }" text>Контакты</v-btn>
+            <v-btn :to="{ name: 'Jobs' }" text>Работа у нас</v-btn>
             <v-btn :to="{ name: 'Privacy' }" text>Конфиденциальность</v-btn>
           </div>
         </v-col>

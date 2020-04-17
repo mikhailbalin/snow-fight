@@ -5,8 +5,8 @@
       min-height="200px"
     >
       <v-row class="fill-height">
-        <v-col cols="12">
-          <h1>{{ title }}</h1>
+        <v-col cols="12" lg="8" offset-lg="2">
+          <h1 class="mb-3">{{ title }}</h1>
           <p class="mb-0">{{ text }}</p>
         </v-col>
       </v-row>

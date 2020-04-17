@@ -16,9 +16,15 @@ export default {
 @import '@/scss/variables.scss';
 
 h1 {
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.4;
+}
+
+@media #{map-get($display-breakpoints, 'md-and-up')} {
+  h1 {
+    font-size: 2rem;
+  }
 }
 
 h2 {
