@@ -15,6 +15,12 @@ export default {
 <style lang="scss">
 @import '@/scss/variables.scss';
 
+h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 h2 {
   font-size: 1.75rem;
   font-weight: 700;
