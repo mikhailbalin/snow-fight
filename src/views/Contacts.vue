@@ -28,7 +28,7 @@
           </v-col>
 
           <v-col cols="12" md="7" lg="5" xl="4">
-            <v-form v-model="formValidity" @submit.prevent="sendForm">
+            <v-form v-model="formValid" @submit.prevent="sendForm">
               <v-row>
                 <v-col cols="12" sm="6" class="pb-0 pb-sm-3">
                   <v-text-field
@@ -71,6 +71,11 @@
                 </v-col>
 
                 <v-col cols="12">
+                  <app-captcha
+                    @onVerify="onCaptchaVerify"
+                    @onExpired="onCaptchaExpired"
+                  />
+
                   <small>
                     Нажимая <strong>Отправить</strong>, вы соглашаетесь с
                     <router-link :to="{ name: 'Privacy' }">
@@ -85,7 +90,7 @@
                     large
                     type="submit"
                     color="primary"
-                    :disabled="!formValidity"
+                    :disabled="!submitAllowed"
                   >
                     Отправить
                   </v-btn>
@@ -114,11 +119,23 @@
 import { mapState } from 'vuex';
 import axios from 'axios';
 import AppBanner from '@/components/AppBanner.vue';
+import AppCaptcha from '@/components/AppCaptcha.vue';
 
 export default {
   name: 'Contacts',
-  components: { AppBanner },
-  computed: mapState(['tel']),
+
+  components: { AppBanner, AppCaptcha },
+
+  computed: {
+    hasToken() {
+      return !!this.captchaToken;
+    },
+    submitAllowed() {
+      return this.formValid && this.hasToken && !this.captchaExpired;
+    },
+    ...mapState(['tel'])
+  },
+
   data: () => ({
     snackbar: {
       visible: false,
@@ -141,16 +158,22 @@ export default {
     ],
     message: '',
     messageRules: [value => !!value || 'Введите сообщение.'],
-    formValidity: false
+    formValid: false,
+    captchaToken: '',
+    captchaExpired: false,
+    capchaError: ''
   }),
+
   methods: {
     async sendForm() {
-      if (this.formValidity) {
+      if (this.submitAllowed) {
+        console.log({ token: this.hasToken });
         try {
           const res = await axios.post('/api/post-form', {
             value1: this.name,
             value2: this.email,
-            value3: this.message
+            value3: this.message,
+            token: this.captchaToken
           });
 
           if (res.status === 200) {
@@ -163,7 +186,19 @@ export default {
           this.snackbar.state = 'error';
           this.snackbar.visible = true;
         }
+      } else {
+        if (!this.hasToken) {
+          console.error('no token');
+        }
       }
+    },
+
+    onCaptchaVerify(token) {
+      this.captchaToken = token;
+    },
+
+    onCaptchaExpired(expired) {
+      this.captchaExpired = expired;
     }
   }
 };

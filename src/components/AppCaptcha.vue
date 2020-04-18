@@ -1,5 +1,11 @@
 <template>
-  <vue-hcaptcha :sitekey="process.env.VUE_APP_CAPTCHA_SITE_KEY"></vue-hcaptcha>
+  <vue-hcaptcha
+    :sitekey="captchaSiteKey"
+    size="normal"
+    @verify="onVerify"
+    @expired="$emit('onExpired', expired)"
+    @error="$emit('onError', error)"
+  ></vue-hcaptcha>
 </template>
 
 <script>
@@ -7,7 +13,21 @@ import VueHcaptcha from '@hcaptcha/vue-hcaptcha';
 
 export default {
   name: 'AppCaptcha',
-  components: { VueHcaptcha }
+  components: { VueHcaptcha },
+  data: () => ({
+    captchaSiteKey: process.env.VUE_APP_CAPTCHA_SITE_KEY
+  }),
+  methods: {
+    onVerify(token) {
+      this.$emit('onVerify', token);
+    },
+    onExpired(expired) {
+      this.$emit('onExpired', expired);
+    },
+    onError(error) {
+      this.$emit('onError', error);
+    }
+  }
 };
 </script>
 
