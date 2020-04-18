@@ -111,8 +111,9 @@
 </template>
 
 <script>
-import AppBanner from '@/components/AppBanner.vue';
 import { mapState } from 'vuex';
+import axios from 'axios';
+import AppBanner from '@/components/AppBanner.vue';
 
 export default {
   name: 'Contacts',
@@ -143,40 +144,25 @@ export default {
     formValidity: false
   }),
   methods: {
-    sendForm() {
+    async sendForm() {
       if (this.formValidity) {
-        const formData = new FormData();
-        formData.append('value1', this.name);
-        formData.append('value2', this.email);
-        formData.append('value3', this.message);
-
-        fetch(
-          'https://maker.ifttt.com/trigger/snow_fight_form_post/with/key/gKycepwvypImjqVRhnRixMI-Kxfy4UJcxoVBlEj1qri',
-          {
-            method: 'POST',
-            mode: 'no-cors',
-            body: formData
-          }
-        )
-          .then(response => {
-            if (!response.ok) {
-              this.snackbar.text = 'Произошла ошибка!';
-              this.snackbar.visible = true;
-              this.snackbar.state = 'error';
-              console.log('response 1', response);
-            } else {
-              this.snackbar.text = 'Сообщение отправлено!';
-              this.snackbar.visible = true;
-              this.snackbar.state = 'success';
-              console.log('responsev2', response);
-            }
-          })
-          .catch(err => {
-            console.log('err', { err });
-            this.snackbar.text = 'Произошла ошибка!';
-            this.snackbar.visible = true;
-            this.snackbar.state = 'error';
+        try {
+          const res = await axios.post('/api/post-form', {
+            value1: this.name,
+            value2: this.email,
+            value3: this.message
           });
+
+          if (res.status === 200) {
+            this.snackbar.text = 'Сообщение отправлено!';
+            this.snackbar.state = 'success';
+            this.snackbar.visible = true;
+          }
+        } catch {
+          this.snackbar.text = 'Произошла ошибка!';
+          this.snackbar.state = 'error';
+          this.snackbar.visible = true;
+        }
       }
     }
   }
