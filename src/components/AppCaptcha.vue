@@ -3,8 +3,8 @@
     :sitekey="captchaSiteKey"
     size="normal"
     @verify="onVerify"
-    @expired="$emit('onExpired', expired)"
-    @error="$emit('onError', error)"
+    @expired="onExpired"
+    @error="onError"
   ></vue-hcaptcha>
 </template>
 
