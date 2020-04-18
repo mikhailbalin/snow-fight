@@ -28,7 +28,7 @@
           </v-col>
 
           <v-col cols="12" md="7" lg="5" xl="4">
-            <v-form v-model="formValidity">
+            <v-form v-model="formValidity" @submit.prevent="sendForm">
               <v-row>
                 <v-col cols="12" sm="6" class="pb-0 pb-sm-3">
                   <v-text-field
@@ -96,6 +96,17 @@
         </v-row>
       </v-container>
     </v-sheet>
+
+    <v-snackbar
+      v-model="snackbar.visible"
+      :timeout="6000"
+      :color="snackbar.state === 'success' ? 'green' : 'red'"
+    >
+      {{ snackbar.text }}
+      <v-btn dark text @click="snackbar.visible = false">
+        Закрыть
+      </v-btn>
+    </v-snackbar>
   </div>
 </template>
 
@@ -108,6 +119,11 @@ export default {
   components: { AppBanner },
   computed: mapState(['tel']),
   data: () => ({
+    snackbar: {
+      visible: false,
+      text: '',
+      state: 'success'
+    },
     name: '',
     nameRules: [value => !!value || 'Введите вашe имя.'],
     email: '',
@@ -125,7 +141,45 @@ export default {
     message: '',
     messageRules: [value => !!value || 'Введите сообщение.'],
     formValidity: false
-  })
+  }),
+  methods: {
+    sendForm() {
+      if (this.formValidity) {
+        const formData = new FormData();
+        formData.append('value1', this.name);
+        formData.append('value2', this.email);
+        formData.append('value3', this.message);
+
+        fetch(
+          'https://maker.ifttt.com/trigger/snow_fight_form_post/with/key/gKycepwvypImjqVRhnRixMI-Kxfy4UJcxoVBlEj1qri',
+          {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+          }
+        )
+          .then(response => {
+            if (!response.ok) {
+              this.snackbar.text = 'Произошла ошибка!';
+              this.snackbar.visible = true;
+              this.snackbar.state = 'error';
+              console.log('response 1', response);
+            } else {
+              this.snackbar.text = 'Сообщение отправлено!';
+              this.snackbar.visible = true;
+              this.snackbar.state = 'success';
+              console.log('responsev2', response);
+            }
+          })
+          .catch(err => {
+            console.log('err', { err });
+            this.snackbar.text = 'Произошла ошибка!';
+            this.snackbar.visible = true;
+            this.snackbar.state = 'error';
+          });
+      }
+    }
+  }
 };
 </script>
 
