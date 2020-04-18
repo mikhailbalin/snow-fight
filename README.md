@@ -27,3 +27,5 @@ yarn lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+> You need to sync npm scripts with Now
