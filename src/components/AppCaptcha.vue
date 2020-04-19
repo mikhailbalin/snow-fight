@@ -1,7 +1,7 @@
 <template>
   <vue-hcaptcha
     :sitekey="captchaSiteKey"
-    size="normal"
+    :size="size"
     @verify="onVerify"
     @expired="onExpired"
     @error="onError"
@@ -14,6 +14,12 @@ import VueHcaptcha from '@hcaptcha/vue-hcaptcha';
 export default {
   name: 'AppCaptcha',
   components: { VueHcaptcha },
+  props: {
+    size: {
+      type: String,
+      default: 'compact'
+    }
+  },
   data: () => ({
     captchaSiteKey: process.env.VUE_APP_CAPTCHA_SITE_KEY
   }),
