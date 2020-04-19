@@ -6,25 +6,31 @@
 
 ## Project setup
 
-```
+```shell
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
 
-```
+```shell
 yarn serve
+```
+
+**For serveless functions local development:**
+
+```shell
+now dev
 ```
 
 ### Compiles and minifies for production
 
-```
+```shell
 yarn build
 ```
 
 ### Lints and fixes files
 
-```
+```shell
 yarn lint
 ```
 
