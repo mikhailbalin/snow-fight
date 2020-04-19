@@ -5,7 +5,7 @@
 
       <v-form v-model="formValidity">
         <v-row>
-          <v-col cols="12" sm="4" offset-sm="2" class="pb-0 pb-sm-3">
+          <v-col cols="12" sm="6" md="4" offset-md="2" class="pb-0 pb-sm-3">
             <v-text-field
               label="Почта"
               type="email"
@@ -19,12 +19,12 @@
             />
           </v-col>
 
-          <v-col class="text-left pt-0 pt-sm-3" cols="12" sm="6">
+          <v-col class="text-left pt-0 pt-sm-3" cols="12" sm="6" md="4">
             <v-btn
               large
               type="submit"
               color="primary"
-              :block="$vuetify.breakpoint.xsOnly"
+              block
               :disabled="!formValidity"
             >
               Подписаться <span class="d-none d-md-inline">на новости</span>
@@ -33,12 +33,18 @@
         </v-row>
       </v-form>
 
-      <small
-        >Никакого спама, обещаем!
-        <router-link :to="{ name: 'Privacy' }"
-          >Конфиденциальность</router-link
-        ></small
-      >
+      <small>
+        Этот сайт защищен сервисом hCaptcha и применяются его
+        <a href="https://hcaptcha.com/privacy">политика конфиденциальности</a> и
+        <a href="https://hcaptcha.com/terms">условия обслуживания</a>.
+
+        <br />
+
+        Мы тоже не спамим!
+        <router-link :to="{ name: 'Privacy' }">
+          Наша конфиденциальность</router-link
+        >.
+      </small>
     </v-container>
   </section>
 </template>
