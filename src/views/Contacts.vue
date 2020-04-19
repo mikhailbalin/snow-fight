@@ -118,7 +118,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import axios from 'axios';
+import EventService from '@/services/EventService';
 import AppBanner from '@/components/AppBanner.vue';
 import AppCaptcha from '@/components/AppCaptcha.vue';
 
@@ -162,8 +162,8 @@ export default {
     formValid: false,
     captchaToken: '',
     captchaExpired: false,
-    capchaError: '',
-    formData: this.createFreshFormObject()
+    capchaError: ''
+    // formData: this.createFreshFormObject()
   }),
 
   methods: {
@@ -179,7 +179,7 @@ export default {
     async sendForm() {
       if (this.submitAllowed) {
         try {
-          const res = await axios.post('/api/post-form', {
+          const res = await EventService.postForm({
             value1: this.name,
             value2: this.email,
             value3: this.message,
