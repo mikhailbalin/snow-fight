@@ -9,7 +9,7 @@ const apiClient = axios.create({
 
 export default {
   postEmail(emailData = {}) {
-    return apiClient.post('/api/post-form', emailData);
+    return apiClient.post('/api/post-email', emailData);
   },
 
   postForm(formData = {}) {
