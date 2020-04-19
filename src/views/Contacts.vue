@@ -90,6 +90,7 @@
                     large
                     type="submit"
                     color="primary"
+                    title="Отправить"
                     :disabled="!submitAllowed"
                   >
                     Отправить
@@ -161,13 +162,22 @@ export default {
     formValid: false,
     captchaToken: '',
     captchaExpired: false,
-    capchaError: ''
+    capchaError: '',
+    formData: this.createFreshFormObject()
   }),
 
   methods: {
+    createFreshFormObject() {
+      return {
+        name: '',
+        email: '',
+        message: '',
+        captchaToken: ''
+      };
+    },
+
     async sendForm() {
       if (this.submitAllowed) {
-        console.log({ token: this.hasToken });
         try {
           const res = await axios.post('/api/post-form', {
             value1: this.name,
