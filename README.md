@@ -1,5 +1,9 @@
 # Snow Fight
 
+![](https://badgen.net/badge/icon/zeit?icon=zeit&label)
+
+> You need to sync npm scripts with [Now](https://zeit.co/mishabalin/snow-fight/settings)
+
 ## Project setup
 
 ```
@@ -28,4 +32,10 @@ yarn lint
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-> You need to sync npm scripts with Now
+## Environment Variables
+
+Update `env` only with [Now](https://zeit.co/mishabalin/snow-fight/settings). To sync run:
+
+```shell
+now env pull
+```
