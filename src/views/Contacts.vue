@@ -28,7 +28,7 @@
           </v-col>
 
           <v-col cols="12" md="7" lg="5" xl="4">
-            <v-form v-model="formValid" @submit.prevent="sendForm">
+            <v-form ref="form" v-model="formValid" @submit.prevent="sendForm">
               <v-row>
                 <v-col cols="12" sm="6" class="pb-0 pb-sm-3">
                   <v-text-field
@@ -39,7 +39,7 @@
                     dense
                     height="44"
                     :rules="nameRules"
-                    v-model="name"
+                    v-model="formData.name"
                     required
                   />
                 </v-col>
@@ -53,7 +53,7 @@
                     dense
                     height="44"
                     :rules="emailRules"
-                    v-model="email"
+                    v-model="formData.email"
                     required
                   />
                 </v-col>
@@ -63,9 +63,9 @@
                     outlined
                     name="message"
                     label="Сообщение"
-                    v-model="message"
+                    v-model="formData.message"
                     :rules="messageRules"
-                    placeholder="Я бы хотел..."
+                    placeholder="Я бы так хотел..."
                     required
                   ></v-textarea>
                 </v-col>
@@ -129,7 +129,7 @@ export default {
 
   computed: {
     hasToken() {
-      return !!this.captchaToken;
+      return !!this.formData.captchaToken;
     },
     submitAllowed() {
       return this.formValid && this.hasToken && !this.captchaExpired;
@@ -137,34 +137,33 @@ export default {
     ...mapState(['tel'])
   },
 
-  data: () => ({
-    snackbar: {
-      visible: false,
-      text: '',
-      state: 'success'
-    },
-    name: '',
-    nameRules: [value => !!value || 'Введите вашe имя.'],
-    email: '',
-    emailRules: [
-      value => !!value || 'Введите вашу почту.',
-      value => value.indexOf('@') !== 0 || 'Email should have a username.',
-      value => value.includes('@') || 'Email should include @ symbol.',
-      value =>
-        value.indexOf('.') - value.indexOf('@') > 1 ||
-        'Email shuold contain a valid domain.',
-      value =>
-        value.indexOf('.') <= value.length - 3 ||
-        'Email should contain a valid domain extension.'
-    ],
-    message: '',
-    messageRules: [value => !!value || 'Введите сообщение.'],
-    formValid: false,
-    captchaToken: '',
-    captchaExpired: false,
-    capchaError: ''
-    // formData: this.createFreshFormObject()
-  }),
+  data() {
+    return {
+      snackbar: {
+        visible: false,
+        text: '',
+        state: 'success'
+      },
+      nameRules: [value => !!value || 'Введите вашe имя.'],
+      emailRules: [
+        value => !!value || 'Введите вашу почту.',
+        value => value.indexOf('@') !== 0 || 'Email should have a username.',
+        value => value.includes('@') || 'Email should include @ symbol.',
+        value =>
+          value.indexOf('.') - value.indexOf('@') > 1 ||
+          'Email shuold contain a valid domain.',
+        value =>
+          value.indexOf('.') <= value.length - 3 ||
+          'Email should contain a valid domain extension.'
+      ],
+      messageRules: [value => !!value || 'Введите сообщение.'],
+      formValid: false,
+      captchaToken: '',
+      captchaExpired: false,
+      capchaError: '',
+      formData: this.createFreshFormObject()
+    };
+  },
 
   methods: {
     createFreshFormObject() {
@@ -180,13 +179,16 @@ export default {
       if (this.submitAllowed) {
         try {
           const res = await EventService.postForm({
-            value1: this.name,
-            value2: this.email,
-            value3: this.message,
-            token: this.captchaToken
+            value1: this.formData.name,
+            value2: this.formData.email,
+            value3: this.formData.message,
+            token: this.formData.captchaToken
           });
 
           if (res.status === 200) {
+            this.formData = this.createFreshFormObject();
+            this.resetValidation();
+
             this.snackbar.text = 'Сообщение отправлено!';
             this.snackbar.state = 'success';
             this.snackbar.visible = true;
@@ -203,8 +205,16 @@ export default {
       }
     },
 
+    resetFrom() {
+      this.$refs.form.reset();
+    },
+
+    resetValidation() {
+      this.$refs.form.resetValidation();
+    },
+
     onCaptchaVerify(token) {
-      this.captchaToken = token;
+      this.formData.captchaToken = token;
     },
 
     onCaptchaExpired(expired) {
