@@ -119,7 +119,7 @@ export default {
       return !!this.formData.captchaToken;
     },
     submitAllowed() {
-      return this.formValid && this.hasToken && !this.captcha.expired;
+      return this.formValid && this.hasToken;
     }
   },
 
@@ -138,10 +138,6 @@ export default {
           'Email should contain a valid domain extension.'
       ],
       messageRules: [value => !!value || 'Введите сообщение.'],
-      captcha: {
-        expired: false,
-        error: ''
-      },
       formData: this.createFreshFormObject(),
       formValid: false,
       tel: TEL

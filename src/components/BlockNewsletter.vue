@@ -3,7 +3,7 @@
     <v-container>
       <h2 class="mb-8">Будте в курсе последних событий!</h2>
 
-      <v-form v-model="formValidity">
+      <v-form ref="form" v-model="formValid" @submit.prevent="sendForm">
         <v-row>
           <v-col cols="12" sm="6" md="4" offset-md="2" class="pb-0 pb-sm-3">
             <v-text-field
@@ -20,12 +20,14 @@
           </v-col>
 
           <v-col class="text-left pt-0 pt-sm-3" cols="12" sm="6" md="4">
+            <app-captcha @onVerify="onCaptchaVerify" size="invisible" />
+
             <v-btn
               large
               type="submit"
               color="primary"
               block
-              :disabled="!formValidity"
+              :disabled="!submitAllowed"
             >
               Подписаться <span class="d-none d-md-inline">на новости</span>
             </v-btn>
@@ -50,8 +52,22 @@
 </template>
 
 <script>
+/* eslint-disable no-unused-vars */
+import { mapActions } from 'vuex';
+import EventService from '@/services/EventService';
+import AppCaptcha from '@/components/AppCaptcha.vue';
+
 export default {
   name: 'BlockNewsletter',
+
+  components: { AppCaptcha },
+
+  computed: {
+    submitAllowed() {
+      return this.formValid;
+    }
+  },
+
   data: () => ({
     email: '',
     emailRules: [
@@ -65,7 +81,65 @@ export default {
         value.indexOf('.') <= value.length - 3 ||
         'Email should contain a valid domain extension.'
     ],
-    formValidity: false
-  })
+    formValid: false,
+    captchaToken: ''
+  }),
+
+  methods: {
+    ...mapActions(['showNotification']),
+
+    async sendForm() {
+      if (this.submitAllowed) {
+        try {
+          const res = await EventService.postEmail({
+            value1: this.email
+          });
+
+          if (res.status === 200) {
+            // this.formData = this.createFreshFormObject();
+            // this.resetValidation();
+
+            this.showNotification({
+              msg: 'Сообщение отправлено!',
+              type: 'success'
+            });
+          } else {
+            this.showNotification({
+              msg: 'Произошла неизвестная ошибка!',
+              type: 'error'
+            });
+          }
+        } catch (err) {
+          this.showNotification({
+            msg: `Произошла ошибка: ${err.message}`,
+            type: 'error'
+          });
+        }
+      }
+      // else {
+      //   if (!this.hasToken) {
+      //     this.showNotification({
+      //       msg: 'Необходимо пройти проверку для hCaptcha.',
+      //       type: 'error'
+      //     });
+      //   }
+      // }
+    },
+
+    createFreshFormObject() {
+      return {
+        email: '',
+        captchaToken: ''
+      };
+    },
+
+    resetValidation() {
+      this.$refs.form.resetValidation();
+    },
+
+    onCaptchaVerify(token) {
+      this.captchaToken = token;
+    }
+  }
 };
 </script>
