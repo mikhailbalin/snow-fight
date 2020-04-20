@@ -3,7 +3,7 @@
     <v-container>
       <h2 class="mb-8">Будте в курсе последних событий!</h2>
 
-      <v-form ref="form" v-model="formValid" @submit.prevent="sendForm">
+      <v-form ref="form" v-model="formValid">
         <v-row>
           <v-col cols="12" sm="6" md="4" offset-md="2" class="pb-0 pb-sm-3">
             <v-text-field
@@ -14,20 +14,25 @@
               dense
               height="44"
               :rules="emailRules"
-              v-model="email"
+              v-model="formData.email"
               required
             />
           </v-col>
 
           <v-col class="text-left pt-0 pt-sm-3" cols="12" sm="6" md="4">
-            <app-captcha @onVerify="onCaptchaVerify" size="invisible" />
+            <app-captcha
+              ref="captcha"
+              @onVerify="onCaptchaVerify"
+              size="invisible"
+            />
 
             <v-btn
               large
               type="submit"
               color="primary"
               block
-              :disabled="!submitAllowed"
+              :disabled="!formValid"
+              @click.prevent="validate"
             >
               Подписаться <span class="d-none d-md-inline">на новости</span>
             </v-btn>
@@ -52,7 +57,6 @@
 </template>
 
 <script>
-/* eslint-disable no-unused-vars */
 import { mapActions } from 'vuex';
 import EventService from '@/services/EventService';
 import AppCaptcha from '@/components/AppCaptcha.vue';
@@ -62,45 +66,52 @@ export default {
 
   components: { AppCaptcha },
 
-  computed: {
-    submitAllowed() {
-      return this.formValid;
-    }
+  data() {
+    return {
+      emailRules: [
+        value => !!value || 'Введите вашу почту.',
+        value => value.indexOf('@') !== 0 || 'Email should have a username.',
+        value => value.includes('@') || 'Email should include @ symbol.',
+        value =>
+          value.indexOf('.') - value.indexOf('@') > 1 ||
+          'Email shuold contain a valid domain.',
+        value =>
+          value.indexOf('.') <= value.length - 3 ||
+          'Email should contain a valid domain extension.'
+      ],
+      formValid: false,
+      formData: this.createFreshFormObject()
+    };
   },
-
-  data: () => ({
-    email: '',
-    emailRules: [
-      value => !!value || 'Введите вашу почту.',
-      value => value.indexOf('@') !== 0 || 'Email should have a username.',
-      value => value.includes('@') || 'Email should include @ symbol.',
-      value =>
-        value.indexOf('.') - value.indexOf('@') > 1 ||
-        'Email shuold contain a valid domain.',
-      value =>
-        value.indexOf('.') <= value.length - 3 ||
-        'Email should contain a valid domain extension.'
-    ],
-    formValid: false,
-    captchaToken: ''
-  }),
 
   methods: {
     ...mapActions(['showNotification']),
 
+    validate() {
+      this.$refs.captcha.execute();
+    },
+
+    createFreshFormObject() {
+      return {
+        email: '',
+        captchaToken: ''
+      };
+    },
+
     async sendForm() {
-      if (this.submitAllowed) {
+      if (this.formValid && this.formData.captchaToken) {
         try {
           const res = await EventService.postEmail({
-            value1: this.email
+            value1: this.formData.email,
+            token: this.formData.captchaToken
           });
 
           if (res.status === 200) {
-            // this.formData = this.createFreshFormObject();
-            // this.resetValidation();
+            this.formData = this.createFreshFormObject();
+            this.resetValidation();
 
             this.showNotification({
-              msg: 'Сообщение отправлено!',
+              msg: 'Ваша почта у нас. Ждите новостей :)',
               type: 'success'
             });
           } else {
@@ -116,21 +127,6 @@ export default {
           });
         }
       }
-      // else {
-      //   if (!this.hasToken) {
-      //     this.showNotification({
-      //       msg: 'Необходимо пройти проверку для hCaptcha.',
-      //       type: 'error'
-      //     });
-      //   }
-      // }
-    },
-
-    createFreshFormObject() {
-      return {
-        email: '',
-        captchaToken: ''
-      };
     },
 
     resetValidation() {
@@ -138,7 +134,15 @@ export default {
     },
 
     onCaptchaVerify(token) {
-      this.captchaToken = token;
+      if (token) {
+        this.formData.captchaToken = token;
+        this.sendForm();
+      } else {
+        this.showNotification({
+          msg: 'Необходимо пройти проверку для hCaptcha.',
+          type: 'error'
+        });
+      }
     }
   }
 };
