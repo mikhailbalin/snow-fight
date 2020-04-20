@@ -106,6 +106,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import EventService from '@/services/EventService';
 import AppBanner from '@/components/AppBanner.vue';
 import AppCaptcha from '@/components/AppCaptcha.vue';
@@ -151,6 +152,8 @@ export default {
   },
 
   methods: {
+    ...mapActions(['showNotification']),
+
     createFreshFormObject() {
       return {
         name: '',
@@ -174,18 +177,23 @@ export default {
             this.formData = this.createFreshFormObject();
             this.resetValidation();
 
-            // this.snackbar.text = 'Сообщение отправлено!';
-            // this.snackbar.state = 'success';
-            // this.snackbar.visible = true;
+            this.showNotification({
+              msg: 'Сообщение отправлено!',
+              state: 'success'
+            });
           }
         } catch {
-          // this.snackbar.text = 'Произошла ошибка!';
-          // this.snackbar.state = 'error';
-          // this.snackbar.visible = true;
+          this.showNotification({
+            msg: 'Произошла ошибка!',
+            state: 'error'
+          });
         }
       } else {
         if (!this.hasToken) {
-          console.error('no token');
+          this.showNotification({
+            msg: 'Необходимо пройти проверку для hCaptcha.',
+            state: 'error'
+          });
         }
       }
     },

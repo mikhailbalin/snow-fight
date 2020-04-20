@@ -8,12 +8,13 @@
     <app-footer />
 
     <v-snackbar
-      v-model="snackbar.visible"
+      v-model="notification.visible"
       :timeout="6000"
-      :color="snackbar.state === 'success' ? 'green' : 'red'"
+      :color="notification.state === 'success' ? 'green' : 'red'"
+      @input="clearNotification"
     >
-      {{ snackbar.text }}
-      <v-btn dark text @click="snackbar.visible = false">
+      {{ notification.msg }}
+      <v-btn dark text @click="clearNotification">
         Закрыть
       </v-btn>
     </v-snackbar>
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import AppHeader from '@/components/AppHeader.vue';
 import AppFooter from '@/components/AppFooter.vue';
 import AppDrawer from '@/components/AppDrawer.vue';
@@ -34,14 +36,8 @@ export default {
     AppDrawer
   },
 
-  data() {
-    return {
-      snackbar: {
-        visible: false,
-        text: '',
-        state: 'success'
-      }
-    };
-  }
+  computed: mapState(['notification']),
+
+  methods: mapActions(['clearNotification'])
 };
 </script>

@@ -14,7 +14,7 @@ module.exports = (req, res) => {
         // { success: false, 'error-codes': [ 'missing-input-secret' ] }
         // { success: true, challenge_ts: '2020-04-19T07:15:13', hostname: '127.0.0.1' }
 
-        console.log('req.body', req.body);
+        // console.log('req.body', req.body);
 
         if (data.success) {
           axios
