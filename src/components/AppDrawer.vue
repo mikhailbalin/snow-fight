@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    :value="sideNavOpen"
+    :value="sideNav.sideNavOpen"
     fixed
     temporary
     bottom
@@ -17,7 +17,7 @@ import AppNavigation from '@/components/AppNavigation.vue';
 export default {
   name: 'AppSideNav',
   components: { AppNavigation },
-  computed: mapState(['sideNavOpen']),
+  computed: mapState(['sideNav']),
   methods: {
     closeSideNav(isClosed) {
       if (!isClosed) this.$store.dispatch('toggleSideNav');

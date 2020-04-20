@@ -45,13 +45,13 @@
 
 <script>
 import AppBanner from '@/components/AppBanner.vue';
-import { mapState } from 'vuex';
+import { TEL } from '@/constants';
 
 export default {
   name: 'Jobs',
   components: { AppBanner },
-  computed: mapState(['tel']),
   data: () => ({
+    tel: TEL,
     items: [
       {
         title: 'Судейство матчей',

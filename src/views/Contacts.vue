@@ -117,10 +117,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import EventService from '@/services/EventService';
 import AppBanner from '@/components/AppBanner.vue';
 import AppCaptcha from '@/components/AppCaptcha.vue';
+import { TEL } from '@/constants';
 
 export default {
   name: 'Contacts',
@@ -133,8 +133,7 @@ export default {
     },
     submitAllowed() {
       return this.formValid && this.hasToken && !this.captchaExpired;
-    },
-    ...mapState(['tel'])
+    }
   },
 
   data() {
@@ -161,7 +160,8 @@ export default {
       captchaToken: '',
       captchaExpired: false,
       capchaError: '',
-      formData: this.createFreshFormObject()
+      formData: this.createFreshFormObject(),
+      tel: TEL
     };
   },
 
