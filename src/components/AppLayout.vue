@@ -10,7 +10,7 @@
     <v-snackbar
       v-model="notification.visible"
       :timeout="6000"
-      :color="notification.state === 'success' ? 'green' : 'red'"
+      :color="notification.type === 'success' ? 'green' : 'red'"
       @input="clearNotification"
     >
       {{ notification.msg }}

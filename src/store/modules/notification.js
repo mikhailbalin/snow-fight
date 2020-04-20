@@ -1,19 +1,19 @@
 export const state = {
   msg: '',
-  state: '',
+  type: '',
   visible: false
 };
 
 export const mutations = {
   SHOW_NOTIFICATION(state, payload) {
     state.msg = payload.msg;
-    state.state = payload.state;
+    state.type = payload.type;
     state.visible = true;
   },
 
   HIDE_NOTIFICATION(state) {
     state.msg = '';
-    state.state = '';
+    state.type = '';
     state.visible = false;
   }
 };

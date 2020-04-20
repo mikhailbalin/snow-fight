@@ -71,10 +71,7 @@
                 </v-col>
 
                 <v-col cols="12">
-                  <app-captcha
-                    @onVerify="onCaptchaVerify"
-                    @onExpired="onCaptchaExpired"
-                  />
+                  <app-captcha @onVerify="onCaptchaVerify" />
 
                   <small>
                     Нажимая <strong>Отправить</strong>, вы соглашаетесь с
@@ -179,27 +176,28 @@ export default {
 
             this.showNotification({
               msg: 'Сообщение отправлено!',
-              state: 'success'
+              type: 'success'
+            });
+          } else {
+            this.showNotification({
+              msg: 'Произошла неизвестная ошибка!',
+              type: 'error'
             });
           }
-        } catch {
+        } catch (err) {
           this.showNotification({
-            msg: 'Произошла ошибка!',
-            state: 'error'
+            msg: `Произошла ошибка: ${err.message}`,
+            type: 'error'
           });
         }
       } else {
         if (!this.hasToken) {
           this.showNotification({
             msg: 'Необходимо пройти проверку для hCaptcha.',
-            state: 'error'
+            type: 'error'
           });
         }
       }
-    },
-
-    resetFrom() {
-      this.$refs.form.reset();
     },
 
     resetValidation() {
@@ -208,10 +206,6 @@ export default {
 
     onCaptchaVerify(token) {
       this.formData.captchaToken = token;
-    },
-
-    onCaptchaExpired(expired) {
-      this.captcha.expired = expired;
     }
   }
 };

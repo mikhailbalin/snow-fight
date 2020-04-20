@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const axios = require('axios').default;
 const getUrl = require('./_utils/getUrl');
 const { verify } = require('hcaptcha');
@@ -11,11 +10,6 @@ module.exports = (req, res) => {
 
     verify(secret, token)
       .then(data => {
-        // { success: false, 'error-codes': [ 'missing-input-secret' ] }
-        // { success: true, challenge_ts: '2020-04-19T07:15:13', hostname: '127.0.0.1' }
-
-        // console.log('req.body', req.body);
-
         if (data.success) {
           axios
             .post(getUrl('snow_fight_form_post'), req.body)
@@ -23,18 +17,19 @@ module.exports = (req, res) => {
               res.status(response.status);
               res.send(response.data);
             })
-            .catch(error => {
-              res.status(error.response.status);
-              res.send(error.response.data);
+            .catch(err => {
+              res.status(err.response.status);
+              res.send(err.message);
             });
         } else {
-          res.send('captcha success false');
+          res.status(500).send('Captcha error');
         }
       })
       .catch(err => {
-        res.send('captcha err');
+        res.status(err.response.status);
+        res.send(err.message);
       });
   } else {
-    res.send('no token');
+    res.status(500).send('No token provided');
   }
 };
