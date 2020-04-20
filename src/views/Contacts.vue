@@ -5,7 +5,7 @@
     <v-sheet tile color="grey lighten-5 fill-height grey--text text--darken-1">
       <v-container class="px-8 py-12">
         <v-row>
-          <v-col cols="12" md="5" lg="3" offset-lg="2" xl="2" offset-xl="3">
+          <v-col cols="12" md="5" lg="3" offset-lg="1" xl="2" offset-xl="2">
             <address class="app-address mb-6">
               <strong class="mb-2">Снежный бой Юкигассен</strong><br />
               Ленинградская область<br />
@@ -27,7 +27,7 @@
             <v-divider class="my-3" />
           </v-col>
 
-          <v-col cols="12" md="7" lg="5" xl="4">
+          <v-col cols="12" md="7" lg="6" offset-lg="1" xl="5" offset-xl="1">
             <v-form ref="form" v-model="formValid" @submit.prevent="sendForm">
               <v-row>
                 <v-col cols="12" sm="6" class="pb-0 pb-sm-3">
@@ -102,17 +102,6 @@
         </v-row>
       </v-container>
     </v-sheet>
-
-    <v-snackbar
-      v-model="snackbar.visible"
-      :timeout="6000"
-      :color="snackbar.state === 'success' ? 'green' : 'red'"
-    >
-      {{ snackbar.text }}
-      <v-btn dark text @click="snackbar.visible = false">
-        Закрыть
-      </v-btn>
-    </v-snackbar>
   </div>
 </template>
 
@@ -132,17 +121,12 @@ export default {
       return !!this.formData.captchaToken;
     },
     submitAllowed() {
-      return this.formValid && this.hasToken && !this.captchaExpired;
+      return this.formValid && this.hasToken && !this.captcha.expired;
     }
   },
 
   data() {
     return {
-      snackbar: {
-        visible: false,
-        text: '',
-        state: 'success'
-      },
       nameRules: [value => !!value || 'Введите вашe имя.'],
       emailRules: [
         value => !!value || 'Введите вашу почту.',
@@ -156,11 +140,12 @@ export default {
           'Email should contain a valid domain extension.'
       ],
       messageRules: [value => !!value || 'Введите сообщение.'],
-      formValid: false,
-      captchaToken: '',
-      captchaExpired: false,
-      capchaError: '',
+      captcha: {
+        expired: false,
+        error: ''
+      },
       formData: this.createFreshFormObject(),
+      formValid: false,
       tel: TEL
     };
   },
@@ -189,14 +174,14 @@ export default {
             this.formData = this.createFreshFormObject();
             this.resetValidation();
 
-            this.snackbar.text = 'Сообщение отправлено!';
-            this.snackbar.state = 'success';
-            this.snackbar.visible = true;
+            // this.snackbar.text = 'Сообщение отправлено!';
+            // this.snackbar.state = 'success';
+            // this.snackbar.visible = true;
           }
         } catch {
-          this.snackbar.text = 'Произошла ошибка!';
-          this.snackbar.state = 'error';
-          this.snackbar.visible = true;
+          // this.snackbar.text = 'Произошла ошибка!';
+          // this.snackbar.state = 'error';
+          // this.snackbar.visible = true;
         }
       } else {
         if (!this.hasToken) {
@@ -218,7 +203,7 @@ export default {
     },
 
     onCaptchaExpired(expired) {
-      this.captchaExpired = expired;
+      this.captcha.expired = expired;
     }
   }
 };

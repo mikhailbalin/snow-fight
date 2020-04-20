@@ -6,6 +6,17 @@
       <router-view />
     </v-content>
     <app-footer />
+
+    <v-snackbar
+      v-model="snackbar.visible"
+      :timeout="6000"
+      :color="snackbar.state === 'success' ? 'green' : 'red'"
+    >
+      {{ snackbar.text }}
+      <v-btn dark text @click="snackbar.visible = false">
+        Закрыть
+      </v-btn>
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -16,10 +27,21 @@ import AppDrawer from '@/components/AppDrawer.vue';
 
 export default {
   name: 'AppLayout',
+
   components: {
     AppHeader,
     AppFooter,
     AppDrawer
+  },
+
+  data() {
+    return {
+      snackbar: {
+        visible: false,
+        text: '',
+        state: 'success'
+      }
+    };
   }
 };
 </script>
