@@ -1,6 +1,6 @@
 const axios = require('axios').default;
-const getUrl = require('./_utils/getUrl');
 const { verify } = require('hcaptcha');
+const getUrl = require('./_utils/getUrl');
 
 module.exports = (req, res) => {
   const token = req.body.token;
@@ -22,7 +22,7 @@ module.exports = (req, res) => {
               res.send(err.message);
             });
         } else {
-          res.status(500).send('Captcha error');
+          res.status(500).send('Form Captcha error');
         }
       })
       .catch(err => {
@@ -30,6 +30,6 @@ module.exports = (req, res) => {
         res.send(err.message);
       });
   } else {
-    res.status(500).send('No token provided');
+    res.status(500).send('No form token provided');
   }
 };
