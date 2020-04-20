@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import AppNavigation from '@/components/AppNavigation.vue';
 
 export default {
@@ -19,8 +19,10 @@ export default {
   components: { AppNavigation },
   computed: mapState(['sideNav']),
   methods: {
+    ...mapActions(['toggleSideNav']),
+
     closeSideNav(isClosed) {
-      if (!isClosed) this.$store.dispatch('toggleSideNav');
+      if (!isClosed) this.toggleSideNav();
     }
   }
 };

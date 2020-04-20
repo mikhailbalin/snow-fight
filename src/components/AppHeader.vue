@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import AppLogo from '@/components/AppLogo.vue';
 import AppNavigation from '@/components/AppNavigation.vue';
 
@@ -26,8 +27,10 @@ export default {
   name: 'AppHeader',
   components: { AppLogo, AppNavigation },
   methods: {
+    ...mapActions(['toggleSideNav']),
+
     openSideNav() {
-      this.$store.dispatch('toggleSideNav');
+      this.toggleSideNav();
     }
   }
 };
