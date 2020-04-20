@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const axios = require('axios').default;
 const { verify } = require('hcaptcha');
 const getUrl = require('./_utils/getUrl');
