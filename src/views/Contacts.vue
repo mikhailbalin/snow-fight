@@ -108,9 +108,12 @@ import EventService from '@/services/EventService';
 import AppBanner from '@/components/AppBanner.vue';
 import AppCaptcha from '@/components/AppCaptcha.vue';
 import { TEL } from '@/constants';
+import { nameRule, emailRule, messageRule } from '@/mixins/validation';
 
 export default {
   name: 'Contacts',
+
+  mixins: [nameRule, emailRule, messageRule],
 
   components: { AppBanner, AppCaptcha },
 
@@ -125,19 +128,6 @@ export default {
 
   data() {
     return {
-      nameRules: [value => !!value || 'Введите вашe имя.'],
-      emailRules: [
-        value => !!value || 'Введите вашу почту.',
-        value => value.indexOf('@') !== 0 || 'Email should have a username.',
-        value => value.includes('@') || 'Email should include @ symbol.',
-        value =>
-          value.indexOf('.') - value.indexOf('@') > 1 ||
-          'Email shuold contain a valid domain.',
-        value =>
-          value.indexOf('.') <= value.length - 3 ||
-          'Email should contain a valid domain extension.'
-      ],
-      messageRules: [value => !!value || 'Введите сообщение.'],
       formData: this.createFreshFormObject(),
       formValid: false,
       tel: TEL
