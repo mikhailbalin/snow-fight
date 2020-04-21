@@ -2,8 +2,9 @@
   <div>
     <block-slider />
     <block-game />
-    <block-newsletter v-intersect="showMoreContent" />
+    <!-- v-intersect="showMoreContent" -->
     <!-- <template v-if="loadNewContent"> -->
+    <block-newsletter />
     <block-how-to />
     <block-testimonials />
     <block-setup />
@@ -37,15 +38,16 @@ export default {
     BlockPrices,
     BlockVideo,
     BlockFaq
-  },
-  data: () => ({
-    loadNewContent: false
-  }),
-  methods: {
-    showMoreContent(entries) {
-      // TODO check if Intersection observer works
-      this.loadNewContent = entries[0].isIntersecting;
-    }
   }
+  // data: () => ({
+  //   loadNewContent: false
+  // }),
+  // methods: {
+  //   showMoreContent(entries) {
+  //     console.log({ entries });
+  //     // TODO check if Intersection observer works
+  //     this.loadNewContent = entries[0].isIntersecting;
+  //   }
+  // }
 };
 </script>

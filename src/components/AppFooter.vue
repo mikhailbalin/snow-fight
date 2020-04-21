@@ -29,6 +29,7 @@
           <div class="pl-4 mb-4 text-uppercase font-weight-bold">
             Следите за нами
           </div>
+
           <v-btn
             icon
             x-large
@@ -39,6 +40,7 @@
             :color="item.color"
             text
             class="white--text mx-2"
+            rel="noopener"
           >
             <font-awesome-icon
               size="2x"
@@ -65,19 +67,19 @@ export default {
       {
         icon: 'twitter',
         color: '#1DA1F2',
-        link: 'https://twitter.com/snowfightrussia'
+        link: 'https://twitter.com/snowfightrussia',
       },
       {
         icon: 'facebook',
         color: '#4267B2',
-        link: 'https://facebook.com/snowfightrussia'
+        link: 'https://facebook.com/snowfightrussia',
       },
       {
         icon: 'instagram',
         color: '#E1306C',
-        link: 'https://www.instagram.com/snowfightrussia'
-      }
-    ]
-  })
+        link: 'https://www.instagram.com/snowfightrussia',
+      },
+    ],
+  }),
 };
 </script>

@@ -56,6 +56,7 @@
             target="_blank"
             class="mt-6 d-inline-flex d-md-none"
             color="white"
+            rel="noopener"
           >
             <font-awesome-icon class="mr-3" :icon="['fab', 'facebook']" />
             <span class="d-inline-block text-truncate app-fb-link">
