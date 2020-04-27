@@ -24,7 +24,7 @@ import AppLogo from '@/components/AppLogo.vue';
 import AppNavigation from '@/components/AppNavigation.vue';
 
 export default {
-  name: 'AppHeader',
+  name: 'TheHeader',
   components: { AppLogo, AppNavigation },
   methods: {
     ...mapActions(['toggleSideNav']),

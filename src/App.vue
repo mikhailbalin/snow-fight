@@ -1,14 +1,14 @@
 <template>
-  <app-layout />
+  <the-layout />
 </template>
 
 <script>
 // @ is an alias to /src
-import AppLayout from '@/components/AppLayout.vue';
+import TheLayout from '@/components/layout/TheLayout.vue';
 
 export default {
   name: 'App',
-  components: { AppLayout }
+  components: { TheLayout }
 };
 </script>
 

@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <app-drawer />
-    <app-header></app-header>
+    <the-header></the-header>
     <v-content class="grey--text text--darken-1">
       <router-view />
     </v-content>
-    <app-footer />
+    <the-footer />
 
     <v-snackbar
       v-model="notification.visible"
@@ -23,16 +23,16 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import AppHeader from '@/components/AppHeader.vue';
-import AppFooter from '@/components/AppFooter.vue';
+import TheHeader from '@/components/layout/TheHeader.vue';
+import TheFooter from '@/components/layout/TheFooter.vue';
 import AppDrawer from '@/components/AppDrawer.vue';
 
 export default {
-  name: 'AppLayout',
+  name: 'TheLayout',
 
   components: {
-    AppHeader,
-    AppFooter,
+    TheHeader,
+    TheFooter,
     AppDrawer
   },
 
