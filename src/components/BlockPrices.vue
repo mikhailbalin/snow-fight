@@ -26,10 +26,13 @@
 
                 <div class="d-flex align-center justify-center">
                   <h3 class="display-2 font-weight-black mb-0">
-                    <sup><small>₽</small></sup
+                    <sup
+                      ><small
+                        ><font-awesome-icon
+                          size="sm"
+                          :icon="['fas', 'ruble-sign']"/></small></sup
                     >{{ item.price }}
                   </h3>
-
                   <div
                     class="text-left ml-4 body-2 font-weight-bold mt-1 text-uppercase"
                   >
