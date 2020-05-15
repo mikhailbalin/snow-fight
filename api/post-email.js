@@ -1,7 +1,7 @@
 const verifyCaptcha = require('./_utils/verifyCaptcha');
 
-module.exports = ({ body: reqData }, res) => {
-  console.log({ reqData });
-  const { status, data } = verifyCaptcha(reqData);
+module.exports = (req, res) => {
+  console.log('req.body', Object.keys(req.body));
+  const { status, data } = verifyCaptcha(req.body);
   res.status(status).send(data);
 };
