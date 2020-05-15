@@ -1,37 +1,34 @@
 const axios = require('axios').default;
 const { verify } = require('hcaptcha');
 const getUrl = require('./getUrl');
-
-const getResponse = (status, data) => ({ status, data });
-
-const validateValues = values => {
-  const items = Object.keys(values);
-  const amountOk = items.length <= 3;
-  const namesOk = items.every(val => val.startsWith('value'));
-  return amountOk && namesOk;
-};
+const validateValues = require('./validateValues');
+const getResponse = require('./getResponse');
 
 module.exports = async ({ token, ...values }) => {
   const dataValid = token && validateValues(values);
 
-  if (dataValid) {
-    const { success } = await verify(process.env.CAPTCHA_SECRET, token);
+  try {
+    if (dataValid) {
+      const { success } = await verify(process.env.CAPTCHA_SECRET, token);
 
-    if (success) {
-      const { status, data } = await axios.post(
-        getUrl('snow_fight_email_post'),
-        values
-      );
+      if (success) {
+        const { status, data } = await axios.post(
+          getUrl('snow_fight_email_post'),
+          values
+        );
 
-      if (status === 200) {
-        return getResponse(status, data);
+        if (status === 200) {
+          return getResponse(status, data);
+        } else {
+          return getResponse(500, 'Проблема с сохранением данных');
+        }
       } else {
-        return getResponse(500, 'Save data error');
+        return getResponse(504, 'Проблема с Captcha');
       }
     } else {
-      return getResponse(504, 'Captcha error');
+      return getResponse(400, 'Проблема с обработкой данных');
     }
-  } else {
-    return getResponse(400, 'Bad request');
+  } catch (error) {
+    console.log({ error });
   }
 };

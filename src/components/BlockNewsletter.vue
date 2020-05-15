@@ -101,12 +101,12 @@ export default {
     async sendForm() {
       if (this.formValid && this.formData.captchaToken) {
         try {
-          const res = await EventService.postEmail({
+          const { status, data } = await EventService.postEmail({
             value1: this.formData.email,
             token: this.formData.captchaToken
           });
 
-          if (res.status === 200) {
+          if (status === 200) {
             this.formData = this.createFreshFormObject();
             this.resetValidation();
 
@@ -115,14 +115,16 @@ export default {
               type: 'success'
             });
           } else {
+            console.log({ data });
             this.showNotification({
-              msg: 'Произошла неизвестная ошибка!',
+              msg: data,
               type: 'error'
             });
           }
         } catch (err) {
+          console.log({ err });
           this.showNotification({
-            msg: `Произошла ошибка: ${err.message}`,
+            msg: `Произошла ошибка ): ${err.response.data}`,
             type: 'error'
           });
         }
