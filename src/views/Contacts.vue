@@ -149,14 +149,14 @@ export default {
     async sendForm() {
       if (this.submitAllowed) {
         try {
-          const res = await EventService.postForm({
+          const { status, data } = await EventService.postForm({
             value1: this.formData.name,
             value2: this.formData.email,
             value3: this.formData.message,
             token: this.formData.captchaToken
           });
 
-          if (res.status === 200) {
+          if (status === 200) {
             this.formData = this.createFreshFormObject();
             this.resetValidation();
 
@@ -166,23 +166,21 @@ export default {
             });
           } else {
             this.showNotification({
-              msg: 'Произошла неизвестная ошибка!',
+              msg: data,
               type: 'error'
             });
           }
         } catch (err) {
           this.showNotification({
-            msg: `Произошла ошибка: ${err.message}`,
+            msg: `Произошла ошибка ): ${err.response.data}`,
             type: 'error'
           });
         }
       } else {
-        if (!this.hasToken) {
-          this.showNotification({
-            msg: 'Необходимо пройти проверку для hCaptcha.',
-            type: 'error'
-          });
-        }
+        this.showNotification({
+          msg: 'Необходимо пройти проверку для hCaptcha.',
+          type: 'error'
+        });
       }
     },
 

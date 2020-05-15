@@ -4,7 +4,7 @@ const getUrl = require('./getUrl');
 const validateValues = require('./validateValues');
 const getResponse = require('./getResponse');
 
-module.exports = async ({ token, ...values }) => {
+module.exports = async ({ token, postEvent, ...values }) => {
   const dataValid = token && validateValues(values);
 
   try {
@@ -12,10 +12,7 @@ module.exports = async ({ token, ...values }) => {
       const { success } = await verify(process.env.CAPTCHA_SECRET, token);
 
       if (success) {
-        const { status, data } = await axios.post(
-          getUrl('snow_fight_email_post'),
-          values
-        );
+        const { status, data } = await axios.post(getUrl(postEvent), values);
 
         if (status === 200) {
           return getResponse(status, data);
@@ -23,12 +20,12 @@ module.exports = async ({ token, ...values }) => {
           return getResponse(500, 'Проблема с сохранением данных');
         }
       } else {
-        return getResponse(504, 'Проблема с Captcha');
+        return getResponse(500, 'Проблема с Captcha');
       }
     } else {
       return getResponse(400, 'Проблема с обработкой данных');
     }
-  } catch (error) {
-    console.log({ error });
+  } catch {
+    return getResponse(500, 'Проблема с запросами');
   }
 };

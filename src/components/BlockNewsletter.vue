@@ -115,14 +115,12 @@ export default {
               type: 'success'
             });
           } else {
-            console.log({ data });
             this.showNotification({
               msg: data,
               type: 'error'
             });
           }
         } catch (err) {
-          console.log({ err });
           this.showNotification({
             msg: `Произошла ошибка ): ${err.response.data}`,
             type: 'error'
@@ -141,7 +139,7 @@ export default {
         this.sendForm();
       } else {
         this.showNotification({
-          msg: 'Необходимо пройти проверку для hCaptcha.',
+          msg: 'Необходимо пройти проверку для hCaptcha',
           type: 'error'
         });
       }
