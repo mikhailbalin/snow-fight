@@ -12,25 +12,25 @@ module.exports = reqData => {
   if (token) {
     verify(process.env.CAPTCHA_SECRET, token)
       .then(verification => {
+        console.log('verification', verification);
         if (verification.success) {
           axios
             .post(getUrl('snow_fight_email_post'), values)
-            .then(response => {
-              return getResponse(response.status, response.data);
+            .then(res => {
+              console.log('axios res', res);
+              return getResponse(200, 'axios res');
             })
             .catch(err => {
-              console.log('axios err', err);
-              // err.message
-              return getResponse(err.response.status, 'axios error');
+              console.error('axios err', err);
+              return getResponse(500, 'axios error');
             });
         } else {
-          return getResponse(500, 'Email Captcha error');
+          return getResponse(500, 'captcha error');
         }
       })
       .catch(err => {
-        console.log('verify err', err);
-        // err.message
-        return getResponse(err.response.status, 'verify error');
+        console.error('verify err', err);
+        return getResponse(500, 'verify error');
       });
   } else {
     return getResponse(500, 'No email token provided');
