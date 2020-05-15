@@ -19,6 +19,7 @@ module.exports = reqData => {
               return getResponse(response.status, response.data);
             })
             .catch(err => {
+              console.log('axios err', err);
               // err.message
               return getResponse(err.response.status, 'axios error');
             });
@@ -27,6 +28,7 @@ module.exports = reqData => {
         }
       })
       .catch(err => {
+        console.log('verify err', err);
         // err.message
         return getResponse(err.response.status, 'verify error');
       });
