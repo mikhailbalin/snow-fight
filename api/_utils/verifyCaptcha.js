@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 const { verify } = require('hcaptcha');
-const getUrl = require('./_utils/getUrl');
+const getUrl = require('./getUrl');
 
 const getResponse = (status, data) => ({ status, data });
 

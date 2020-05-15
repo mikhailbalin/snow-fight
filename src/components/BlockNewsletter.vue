@@ -121,7 +121,6 @@ export default {
             });
           }
         } catch (err) {
-          console.log({ err });
           this.showNotification({
             msg: `Произошла ошибка: ${err.message}`,
             type: 'error'
