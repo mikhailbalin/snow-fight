@@ -17,14 +17,14 @@ module.exports = reqData => {
               return getResponse(response.status, response.data);
             })
             .catch(err => {
-              return getResponse(err.response.status, err.message);
+              return getResponse(err.response.status, { axios: err });
             });
         } else {
           return getResponse(500, 'Email Captcha error');
         }
       })
       .catch(err => {
-        return getResponse(err.response.status, err.message);
+        return getResponse(err.response.status, { verify: err });
       });
   } else {
     return getResponse(500, 'No email token provided');
