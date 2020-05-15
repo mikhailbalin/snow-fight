@@ -1,8 +1,12 @@
 const verifyCaptcha = require('./_utils/verifyCaptcha');
 
-module.exports = (req, res) => {
-  const test = verifyCaptcha(req.body);
-  console.log('verifyCaptcha', test);
-  // if (test.status) res.status(test.status);
-  res.send('data');
+module.exports = async (req, res) => {
+  const { status, data } = await verifyCaptcha(req.body);
+
+  console.log({ status, data });
+  console.log(
+    '--------------------------------------------------------------------'
+  );
+
+  res.status(status).send(data);
 };
