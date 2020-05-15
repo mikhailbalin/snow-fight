@@ -7,6 +7,8 @@ const getResponse = (status, data) => ({ status, data });
 module.exports = reqData => {
   const { token, ...values } = reqData;
 
+  console.log('reqData', typeof token, values);
+
   if (token) {
     verify(process.env.CAPTCHA_SECRET, token)
       .then(verification => {
@@ -17,14 +19,16 @@ module.exports = reqData => {
               return getResponse(response.status, response.data);
             })
             .catch(err => {
-              return getResponse(err.response.status, { axios: err });
+              // err.message
+              return getResponse(err.response.status, 'axios error');
             });
         } else {
           return getResponse(500, 'Email Captcha error');
         }
       })
       .catch(err => {
-        return getResponse(err.response.status, { verify: err });
+        // err.message
+        return getResponse(err.response.status, 'verify error');
       });
   } else {
     return getResponse(500, 'No email token provided');
