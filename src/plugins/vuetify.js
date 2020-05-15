@@ -8,7 +8,8 @@ import {
   faChevronDown,
   faBars,
   faCircle,
-  faRubleSign
+  faRubleSign,
+  faPlus
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faTwitter,
@@ -28,7 +29,8 @@ library.add(
   faInstagram,
   faBars,
   faCircle,
-  faRubleSign
+  faRubleSign,
+  faPlus
 );
 
 Vue.use(Vuetify);

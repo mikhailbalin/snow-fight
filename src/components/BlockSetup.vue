@@ -28,11 +28,7 @@
         <v-col sm="6" offset-lg="1" xl="4" class="text-left">
           <h2 class="d-none d-sm-block mb-2">{{ equipment.title }}</h2>
           <p>{{ equipment.text }}</p>
-          <ul>
-            <li v-for="(item, idx) in equipment.list" :key="idx">
-              {{ item }}
-            </li>
-          </ul>
+          <app-list :items="equipment.list"></app-list>
         </v-col>
       </v-row>
 
@@ -69,11 +65,7 @@
             <h2 class="mb-2">{{ tournment.title }}</h2>
           </div>
           <p>{{ tournment.text }}</p>
-          <ul>
-            <li v-for="(item, idx) in tournment.list" :key="idx">
-              {{ item }}
-            </li>
-          </ul>
+          <app-list :items="tournment.list"></app-list>
           <p>
             Напишите нам на почту info@snowfight.ru или воспользуйтесь формой
             для сообщений и мы обсудим ваш оригинальный выходной.
@@ -85,8 +77,13 @@
 </template>
 
 <script>
+import AppList from '@/components/AppList.vue';
+
 export default {
   name: 'BlockSetup',
+
+  components: { AppList },
+
   data: () => ({
     space: {
       title: 'Площадка',
@@ -122,5 +119,3 @@ export default {
   })
 };
 </script>
-
-<style lang="scss" scoped></style>
