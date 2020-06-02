@@ -4,6 +4,11 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
+import VueGtag from 'vue-gtag';
+
+Vue.use(VueGtag, {
+  config: { id: 'G-0KZLLH1NS2' }
+});
 
 Vue.config.productionTip = false;
 
