@@ -15,9 +15,9 @@ export default {
   data() {
     return {
       slides: [
-        { src: '/images/carousel-1.jpg' },
-        { src: '/images/carousel-2.jpg' },
-        { src: '/images/carousel-3.jpg' }
+        { src: '/img/carousel-1.jpg' },
+        { src: '/img/carousel-2.jpg' },
+        { src: '/img/carousel-3.jpg' }
       ]
     };
   }
