@@ -8,7 +8,7 @@ import TheLayout from '@/components/layout/TheLayout.vue';
 
 export default {
   name: 'App',
-  components: { TheLayout }
+  components: { TheLayout },
 };
 </script>
 
