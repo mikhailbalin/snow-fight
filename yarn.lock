@@ -10508,13 +10508,13 @@ fsevents@~2.3.1:
     sass: ^1.34.0
     sass-loader: 10.1.1
     vue: ^2.6.12
-    vue-cli-plugin-vuetify: ~2.0.9
-    vue-gtag: ^1.6.2
-    vue-router: ^3.1.6
+    vue-cli-plugin-vuetify: ~2.4.0
+    vue-gtag: ^1.16.1
+    vue-router: ^3.5.1
     vue-template-compiler: ^2.6.12
-    vuetify: ^2.2.11
-    vuetify-loader: ^1.3.0
-    vuex: ^3.1.3
+    vuetify: ^2.5.1
+    vuetify-loader: ^1.7.2
+    vuex: ^3.6.2
   languageName: unknown
   linkType: soft
 
@@ -11715,9 +11715,9 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"vue-cli-plugin-vuetify@npm:~2.0.9":
-  version: 2.0.9
-  resolution: "vue-cli-plugin-vuetify@npm:2.0.9"
+"vue-cli-plugin-vuetify@npm:~2.4.0":
+  version: 2.4.0
+  resolution: "vue-cli-plugin-vuetify@npm:2.4.0"
   dependencies:
     null-loader: ^3.0.0
     semver: ^7.1.2
@@ -11727,7 +11727,7 @@ fsevents@~2.3.1:
       optional: true
     vuetify-loader:
       optional: true
-  checksum: 64605ef3bf57ed9ab041f5f7854d1ff17caa8995886f27a95a74c58efb6f1a32236c69a4ed995698f2420e1f6f8ee628252de92df8f671a6b6c5d05a89ed796f
+  checksum: 4860a3779e0ef1e9d7c6a42b3ec86d80a8c6810a443a71dee5ba1da0925148c657c815363c0962c37f85a3f98cdeba9966915caf8d53ef564e99f896499c3134
   languageName: node
   linkType: hard
 
@@ -11747,7 +11747,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"vue-gtag@npm:^1.6.2":
+"vue-gtag@npm:^1.16.1":
   version: 1.16.1
   resolution: "vue-gtag@npm:1.16.1"
   peerDependencies:
@@ -11795,7 +11795,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^3.1.6":
+"vue-router@npm:^3.5.1":
   version: 3.5.1
   resolution: "vue-router@npm:3.5.1"
   checksum: cf53dc6bdb280090831fb68d324326a5d5da3cb686c4b5a53fd1ac25294c03009442c5102ac94f82596ea9851805ba4ef796cbe734e215602adede1fb94304c7
@@ -11836,7 +11836,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"vuetify-loader@npm:^1.3.0":
+"vuetify-loader@npm:^1.7.2":
   version: 1.7.2
   resolution: "vuetify-loader@npm:1.7.2"
   dependencies:
@@ -11851,7 +11851,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"vuetify@npm:^2.2.11":
+"vuetify@npm:^2.5.1":
   version: 2.5.1
   resolution: "vuetify@npm:2.5.1"
   peerDependencies:
@@ -11860,7 +11860,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"vuex@npm:^3.1.3":
+"vuex@npm:^3.6.2":
   version: 3.6.2
   resolution: "vuex@npm:3.6.2"
   peerDependencies:
