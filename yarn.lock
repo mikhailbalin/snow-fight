@@ -3931,7 +3931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.6.4, core-js@npm:^3.6.5":
+"core-js@npm:^3.13.1, core-js@npm:^3.6.5":
   version: 3.13.1
   resolution: "core-js@npm:3.13.1"
   checksum: 9138463ed7e6489a0b7f7e8a13cb345fde22866ab23d35f0e0e0ddc13e0374dfc7542d7316762a7dc2a5074efe22f8ff692e26ccc22860d8179de5eedf922e98
@@ -10498,7 +10498,7 @@ fsevents@~2.3.1:
     "@vue/eslint-config-prettier": ^6.0.0
     axios: ^0.21.1
     babel-eslint: ^10.1.0
-    core-js: ^3.6.4
+    core-js: ^3.13.1
     eslint: ^7.27.0
     eslint-plugin-prettier: ^3.4.0
     eslint-plugin-vue: ^7.10.0
