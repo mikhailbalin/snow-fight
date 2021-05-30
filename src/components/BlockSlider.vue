@@ -17,10 +17,10 @@ export default {
       slides: [
         { src: '/img/carousel-1.jpg' },
         { src: '/img/carousel-2.jpg' },
-        { src: '/img/carousel-3.jpg' }
-      ]
+        { src: '/img/carousel-3.jpg' },
+      ],
     };
-  }
+  },
 };
 </script>
 

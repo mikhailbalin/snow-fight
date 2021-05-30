@@ -10105,9 +10105,9 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"sass-loader@npm:10.1.1":
-  version: 10.1.1
-  resolution: "sass-loader@npm:10.1.1"
+"sass-loader@npm:10.2.0":
+  version: 10.2.0
+  resolution: "sass-loader@npm:10.2.0"
   dependencies:
     klona: ^2.0.4
     loader-utils: ^2.0.0
@@ -10116,7 +10116,7 @@ fsevents@~2.3.1:
     semver: ^7.3.2
   peerDependencies:
     fibers: ">= 3.1.0"
-    node-sass: ^4.0.0 || ^5.0.0
+    node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0
     sass: ^1.3.0
     webpack: ^4.36.0 || ^5.0.0
   peerDependenciesMeta:
@@ -10126,18 +10126,18 @@ fsevents@~2.3.1:
       optional: true
     sass:
       optional: true
-  checksum: 725245f0259453fcc51c4a1012c484dda1340ebb10b9c461e2b3b4408105f5426ad5613282ad0861c1f32744533d8a584450b11daf42aa1237b04287f01223d4
+  checksum: 1c8914920749f2e2e404e4663c9cce6ef4d38dc7fb30117c722c25b76257ebee444c90d20e174adf621036e1afefaadc8f89b69fd912347f4618b7401afae53c
   languageName: node
   linkType: hard
 
-"sass@npm:^1.34.0":
-  version: 1.34.0
-  resolution: "sass@npm:1.34.0"
+"sass@npm:1.32.13":
+  version: 1.32.13
+  resolution: "sass@npm:1.32.13"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: abc3e39a8500cb7d3498b69aaa9ba8af391a186956bf9121790f5f27497a5d6a245273476d5b6b1fd8b696b490c44b05a7bfcc8334fe4ae7e3d894fe9d161ac6
+  checksum: 93913232ec9efbd9edbe63e9c32e08c90e2ca7e1b75079b570207aa828386ad1391a0944a06411f2b2add88803a41dd3ecbfbbcf45ec4c2b288154e17243e71f
   languageName: node
   linkType: hard
 
@@ -10505,8 +10505,8 @@ fsevents@~2.3.1:
     hcaptcha: ^0.0.2
     prettier: ^2.3.0
     register-service-worker: ^1.7.2
-    sass: ^1.34.0
-    sass-loader: 10.1.1
+    sass: 1.32.13
+    sass-loader: 10.2.0
     vue: ^2.6.12
     vue-cli-plugin-vuetify: ~2.4.0
     vue-gtag: ^1.16.1

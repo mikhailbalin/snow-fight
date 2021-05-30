@@ -3,8 +3,8 @@ import axios from 'axios';
 const apiClient = axios.create({
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 });
 
 export default {
@@ -14,5 +14,5 @@ export default {
 
   postForm(formData = {}) {
     return apiClient.post('/api/post-form', formData);
-  }
+  },
 };

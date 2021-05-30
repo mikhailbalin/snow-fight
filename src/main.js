@@ -9,7 +9,7 @@ import VueGtag from 'vue-gtag';
 Vue.use(
   VueGtag,
   {
-    config: { id: 'G-0KZLLH1NS2' }
+    config: { id: 'G-0KZLLH1NS2' },
   },
   router
 );
@@ -20,5 +20,5 @@ new Vue({
   router,
   store,
   vuetify,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount('#app');

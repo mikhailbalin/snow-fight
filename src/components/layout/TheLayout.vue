@@ -14,9 +14,7 @@
       @input="clearNotification"
     >
       {{ notification.msg }}
-      <v-btn dark text @click="clearNotification">
-        Закрыть
-      </v-btn>
+      <v-btn dark text @click="clearNotification"> Закрыть </v-btn>
     </v-snackbar>
   </v-app>
 </template>
@@ -33,11 +31,11 @@ export default {
   components: {
     TheHeader,
     TheFooter,
-    AppDrawer
+    AppDrawer,
   },
 
   computed: mapState(['notification']),
 
-  methods: mapActions(['clearNotification'])
+  methods: mapActions(['clearNotification']),
 };
 </script>

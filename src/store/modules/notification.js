@@ -1,7 +1,7 @@
 export const state = {
   msg: '',
   type: '',
-  visible: false
+  visible: false,
 };
 
 export const mutations = {
@@ -15,7 +15,7 @@ export const mutations = {
     state.msg = '';
     state.type = '';
     state.visible = false;
-  }
+  },
 };
 
 export const actions = {
@@ -25,5 +25,5 @@ export const actions = {
 
   clearNotification({ commit }) {
     commit('HIDE_NOTIFICATION');
-  }
+  },
 };

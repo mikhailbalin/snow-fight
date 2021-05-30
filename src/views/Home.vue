@@ -37,8 +37,8 @@ export default {
     BlockSetup,
     BlockPrices,
     BlockVideo,
-    BlockFaq
-  }
+    BlockFaq,
+  },
   // data: () => ({
   //   loadNewContent: false
   // }),

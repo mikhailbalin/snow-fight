@@ -15,13 +15,13 @@ export default {
     imgPath: String,
     numTitle: {
       type: Number,
-      required: true
+      required: true,
     },
     description: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 

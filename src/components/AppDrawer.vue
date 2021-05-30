@@ -23,8 +23,8 @@ export default {
 
     closeSideNav(isClosed) {
       if (!isClosed) this.toggleSideNav();
-    }
-  }
+    },
+  },
 };
 </script>
 

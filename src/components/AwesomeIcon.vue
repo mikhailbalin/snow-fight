@@ -8,7 +8,7 @@
 export default {
   name: 'AwesomeIcon',
   props: {
-    icon: Array
-  }
+    icon: Array,
+  },
 };
 </script>

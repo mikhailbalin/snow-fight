@@ -67,19 +67,19 @@ export default {
       {
         icon: 'twitter',
         color: '#1DA1F2',
-        link: 'https://twitter.com/snowfightrussia'
+        link: 'https://twitter.com/snowfightrussia',
       },
       {
         icon: 'facebook',
         color: '#4267B2',
-        link: 'https://facebook.com/snowfightrussia'
+        link: 'https://facebook.com/snowfightrussia',
       },
       {
         icon: 'instagram',
         color: '#E1306C',
-        link: 'https://www.instagram.com/snowfightrussia'
-      }
-    ]
-  })
+        link: 'https://www.instagram.com/snowfightrussia',
+      },
+    ],
+  }),
 };
 </script>

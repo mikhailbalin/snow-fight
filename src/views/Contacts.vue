@@ -123,14 +123,14 @@ export default {
     },
     submitAllowed() {
       return this.formValid && this.hasToken;
-    }
+    },
   },
 
   data() {
     return {
       formData: this.createFreshFormObject(),
       formValid: false,
-      tel: TEL
+      tel: TEL,
     };
   },
 
@@ -142,7 +142,7 @@ export default {
         name: '',
         email: '',
         message: '',
-        captchaToken: ''
+        captchaToken: '',
       };
     },
 
@@ -153,7 +153,7 @@ export default {
             value1: this.formData.name,
             value2: this.formData.email,
             value3: this.formData.message,
-            token: this.formData.captchaToken
+            token: this.formData.captchaToken,
           });
 
           if (status === 200) {
@@ -162,24 +162,24 @@ export default {
 
             this.showNotification({
               msg: 'Сообщение отправлено!',
-              type: 'success'
+              type: 'success',
             });
           } else {
             this.showNotification({
               msg: data,
-              type: 'error'
+              type: 'error',
             });
           }
         } catch (err) {
           this.showNotification({
             msg: `Произошла ошибка ): ${err.response.data}`,
-            type: 'error'
+            type: 'error',
           });
         }
       } else {
         this.showNotification({
           msg: 'Необходимо пройти проверку для hCaptcha.',
-          type: 'error'
+          type: 'error',
         });
       }
     },
@@ -190,8 +190,8 @@ export default {
 
     onCaptchaVerify(token) {
       this.formData.captchaToken = token;
-    }
-  }
+    },
+  },
 };
 </script>
 

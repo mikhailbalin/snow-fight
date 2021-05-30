@@ -1,7 +1,14 @@
 <template>
   <v-container>
     <v-sheet
-      class="text-center d-flex align-center justify-center grey--text text--darken-1"
+      class="
+        text-center
+        d-flex
+        align-center
+        justify-center
+        grey--text
+        text--darken-1
+      "
       min-height="200px"
     >
       <v-row class="fill-height">
@@ -20,10 +27,10 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
-    text: String
-  }
+    text: String,
+  },
 };
 </script>
 

@@ -5,7 +5,7 @@
         'grey--text',
         'text--darken-2',
         'font-weight-bold',
-        { 'mb-4': vertical }
+        { 'mb-4': vertical },
       ]"
       to="/#what-is-this"
       text
@@ -17,7 +17,7 @@
         'grey--text',
         'text--darken-2',
         'font-weight-bold',
-        { 'mb-4': vertical }
+        { 'mb-4': vertical },
       ]"
       to="/#how-to-play"
       text
@@ -29,7 +29,7 @@
         'grey--text',
         'text--darken-2',
         'font-weight-bold',
-        { 'mb-4': vertical }
+        { 'mb-4': vertical },
       ]"
       to="/#setup"
       text
@@ -41,7 +41,7 @@
         'grey--text',
         'text--darken-2',
         'font-weight-bold',
-        { 'mb-4': vertical }
+        { 'mb-4': vertical },
       ]"
       to="/#prices"
       text
@@ -53,7 +53,7 @@
         'grey--text',
         'text--darken-2',
         'font-weight-bold',
-        { 'mb-4': vertical }
+        { 'mb-4': vertical },
       ]"
       :to="{ name: 'Questions' }"
       text
@@ -65,7 +65,7 @@
         'grey--text',
         'text--darken-2',
         'font-weight-bold',
-        { 'mb-4': vertical }
+        { 'mb-4': vertical },
       ]"
       :to="{ name: 'Contacts' }"
       text
@@ -79,9 +79,9 @@ export default {
   name: 'AppNavigation',
   props: {
     vertical: {
-      type: Boolean
-    }
-  }
+      type: Boolean,
+    },
+  },
 };
 </script>
 

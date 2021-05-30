@@ -20,12 +20,12 @@ export default {
   props: {
     size: {
       type: String,
-      default: 'compact'
-    }
+      default: 'compact',
+    },
   },
 
   data: () => ({
-    captchaSiteKey: process.env.VUE_APP_CAPTCHA_SITE_KEY
+    captchaSiteKey: process.env.VUE_APP_CAPTCHA_SITE_KEY,
   }),
 
   methods: {
@@ -43,8 +43,8 @@ export default {
 
     execute() {
       this.$refs.hcaptcha.execute();
-    }
-  }
+    },
+  },
 };
 </script>
 

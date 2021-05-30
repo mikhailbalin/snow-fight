@@ -83,19 +83,19 @@ export default {
       stats: [
         {
           title: 11,
-          description: 'матчей'
+          description: 'матчей',
         },
         {
           title: 9,
-          description: 'команд'
+          description: 'команд',
         },
         {
           title: 4500,
-          description: 'снежков'
-        }
-      ]
+          description: 'снежков',
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

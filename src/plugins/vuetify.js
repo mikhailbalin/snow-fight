@@ -9,12 +9,12 @@ import {
   faBars,
   faCircle,
   faRubleSign,
-  faPlus
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faTwitter,
   faFacebook,
-  faInstagram
+  faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 import AwesomeIcon from '@/components/AwesomeIcon.vue';
 
@@ -39,9 +39,9 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
-        primary: '#4688F1'
-      }
-    }
+        primary: '#4688F1',
+      },
+    },
   },
   icons: {
     iconfont: 'faSvg',
@@ -49,33 +49,33 @@ export default new Vuetify({
       prev: {
         component: AwesomeIcon,
         props: {
-          icon: ['fas', 'chevron-left']
-        }
+          icon: ['fas', 'chevron-left'],
+        },
       },
       next: {
         component: AwesomeIcon,
         props: {
-          icon: ['fas', 'chevron-right']
-        }
+          icon: ['fas', 'chevron-right'],
+        },
       },
       expand: {
         component: AwesomeIcon,
         props: {
-          icon: ['fas', 'chevron-down']
-        }
+          icon: ['fas', 'chevron-down'],
+        },
       },
       bars: {
         component: AwesomeIcon,
         props: {
-          icon: ['fas', 'bars']
-        }
+          icon: ['fas', 'bars'],
+        },
       },
       delimiter: {
         component: AwesomeIcon,
         props: {
-          icon: ['fas', 'circle']
-        }
-      }
-    }
-  }
+          icon: ['fas', 'circle'],
+        },
+      },
+    },
+  },
 });

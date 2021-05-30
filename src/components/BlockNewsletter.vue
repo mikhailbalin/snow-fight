@@ -72,15 +72,15 @@ export default {
   data() {
     return {
       emailRules: [
-        value => !!value || 'Введите вашу почту.',
-        value => value.indexOf('@') !== 0 || 'Email should have a username.',
-        value => value.includes('@') || 'Email should include @ symbol.',
-        value =>
+        (value) => !!value || 'Введите вашу почту.',
+        (value) => value.indexOf('@') !== 0 || 'Email should have a username.',
+        (value) => value.includes('@') || 'Email should include @ symbol.',
+        (value) =>
           value.indexOf('.') <= value.length - 3 ||
-          'Email should contain a valid domain extension.'
+          'Email should contain a valid domain extension.',
       ],
       formValid: false,
-      formData: this.createFreshFormObject()
+      formData: this.createFreshFormObject(),
     };
   },
 
@@ -94,7 +94,7 @@ export default {
     createFreshFormObject() {
       return {
         email: '',
-        captchaToken: ''
+        captchaToken: '',
       };
     },
 
@@ -103,7 +103,7 @@ export default {
         try {
           const { status, data } = await EventService.postEmail({
             value1: this.formData.email,
-            token: this.formData.captchaToken
+            token: this.formData.captchaToken,
           });
 
           if (status === 200) {
@@ -112,18 +112,18 @@ export default {
 
             this.showNotification({
               msg: 'Ваша почта у нас. Ждите новостей :)',
-              type: 'success'
+              type: 'success',
             });
           } else {
             this.showNotification({
               msg: data,
-              type: 'error'
+              type: 'error',
             });
           }
         } catch (err) {
           this.showNotification({
             msg: `Произошла ошибка ): ${err.response.data}`,
-            type: 'error'
+            type: 'error',
           });
         }
       }
@@ -140,10 +140,10 @@ export default {
       } else {
         this.showNotification({
           msg: 'Необходимо пройти проверку для hCaptcha',
-          type: 'error'
+          type: 'error',
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>

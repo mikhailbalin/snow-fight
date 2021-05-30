@@ -15,8 +15,8 @@ export default {
   name: 'AppList',
 
   props: {
-    items: Array
-  }
+    items: Array,
+  },
 };
 </script>
 

@@ -31,8 +31,8 @@ export default {
 
     openSideNav() {
       this.toggleSideNav();
-    }
-  }
+    },
+  },
 };
 </script>
 

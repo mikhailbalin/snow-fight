@@ -11,7 +11,7 @@
               grey: idx !== 1,
               'lighten-4': idx !== 1,
               white: idx === 1,
-              'elevation-10': idx === 1
+              'elevation-10': idx === 1,
             }"
           >
             <v-card flat outlined class="fill-height">
@@ -30,11 +30,18 @@
                       ><small
                         ><font-awesome-icon
                           size="sm"
-                          :icon="['fas', 'ruble-sign']"/></small></sup
+                          :icon="['fas', 'ruble-sign']" /></small></sup
                     >{{ item.price }}
                   </h3>
                   <div
-                    class="text-left ml-4 body-2 font-weight-bold mt-1 text-uppercase"
+                    class="
+                      text-left
+                      ml-4
+                      body-2
+                      font-weight-bold
+                      mt-1
+                      text-uppercase
+                    "
                   >
                     за
                     <v-divider class="app-divider primary" />
@@ -48,7 +55,7 @@
                 :class="{
                   'fill-height': !item.сonditions,
                   'd-sm-flex': !item.сonditions,
-                  'align-center': !item.сonditions
+                  'align-center': !item.сonditions,
                 }"
               >
                 <div v-if="item.сonditions">
@@ -57,7 +64,7 @@
                       class="my-3"
                       :class="{
                         'mt-0': idx === 0,
-                        'mb-0': idx === item.сonditions.length - 1
+                        'mb-0': idx === item.сonditions.length - 1,
                       }"
                       v-html="сondition"
                     />
@@ -110,8 +117,8 @@ export default {
         for: 'игрока',
         сonditions: [
           'Каждый игрок сыграет по 2 матча.',
-          'При ничье побелитель будет выявлен по очкам или Броскам победы<sup>1</sup>'
-        ]
+          'При ничье побелитель будет выявлен по очкам или Броскам победы<sup>1</sup>',
+        ],
       },
       {
         title: 'Игры на вашей площадке',
@@ -119,14 +126,14 @@ export default {
         for: 'площадку',
         сonditions: [
           'Применяются те же правила, что и для сборных команд.',
-          'Каждая дополнительная игра - 150 руб. / один игрок.'
-        ]
+          'Каждая дополнительная игра - 150 руб. / один игрок.',
+        ],
       },
       {
-        title: 'Групповые соревнования'
-      }
-    ]
-  })
+        title: 'Групповые соревнования',
+      },
+    ],
+  }),
 };
 </script>
 

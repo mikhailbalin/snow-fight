@@ -1,6 +1,13 @@
 <template>
   <v-sheet
-    class="text-center d-flex align-center justify-center grey--text text--darken-1"
+    class="
+      text-center
+      d-flex
+      align-center
+      justify-center
+      grey--text
+      text--darken-1
+    "
     min-height="80vh"
   >
     <v-container class="px-8">
@@ -29,6 +36,6 @@
 
 <script>
 export default {
-  name: 'NotFound'
+  name: 'NotFound',
 };
 </script>

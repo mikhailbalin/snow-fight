@@ -12,8 +12,8 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: 'Играй в снежки по правилам!'
-    }
+      title: 'Играй в снежки по правилам!',
+    },
   },
   {
     path: '/contacts',
@@ -24,8 +24,8 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "contacts" */ '../views/Contacts.vue'),
     meta: {
-      title: 'Контакты'
-    }
+      title: 'Контакты',
+    },
   },
   {
     path: '/questions',
@@ -33,16 +33,16 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "questions" */ '../views/Questions.vue'),
     meta: {
-      title: 'Вопросы'
-    }
+      title: 'Вопросы',
+    },
   },
   {
     path: '/jobs',
     name: 'Jobs',
     component: () => import(/* webpackChunkName: "jobs" */ '../views/Jobs.vue'),
     meta: {
-      title: 'Работа у нас'
-    }
+      title: 'Работа у нас',
+    },
   },
   {
     path: '/privacy',
@@ -50,17 +50,17 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "privacy" */ '../views/Privacy.vue'),
     meta: {
-      title: 'Конфиденциальность'
-    }
+      title: 'Конфиденциальность',
+    },
   },
   {
     path: '*',
     component: () =>
       import(/* webpackChunkName: "404" */ '../views/NotFound.vue'),
     meta: {
-      title: 'Такой страницы нет'
-    }
-  }
+      title: 'Такой страницы нет',
+    },
+  },
 ];
 
 const router = new VueRouter({
@@ -77,7 +77,7 @@ const router = new VueRouter({
     }
 
     return goTo(scrollTo);
-  }
+  },
 });
 
 router.beforeEach((to, from, next) => {
