@@ -1,21 +1,24 @@
 # Snow Fight
 
-![](https://badgen.net/badge/icon/zeit?icon=zeit&label)
+![](https://badgen.net/badge/icon/vercel?icon=vercel&label)
+![](https://badgen.net/github/last-commit/mikhailbalin/snow-fight)
 
-> You need to sync npm scripts with [Now](https://zeit.co/mishabalin/snow-fight/settings)
+> You need to sync npm scripts with [Vercel](https://vercel.com/mishabalin/snow-fight/settings)
 
 ## Link to ZEIT Now
 
 ```shell
-now
+npm i -g vercel
+vercel
 ```
 
 ## Environment Variables
 
-Update `env` only with [Now](https://zeit.co/mishabalin/snow-fight/settings). To sync run:
+Update `env` only with [Vercel](https://vercel.com/mishabalin/snow-fight/settings). To sync run:
 
 ```shell
-now env pull
+vercel link
+vercel env pull
 ```
 
 ## Project setup
@@ -33,7 +36,7 @@ yarn serve
 **For serveless functions local development:**
 
 ```shell
-now dev
+vercel dev
 ```
 
 ### Compiles and minifies for production
