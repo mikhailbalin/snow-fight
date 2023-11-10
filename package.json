@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@hcaptcha/vue-hcaptcha": "^0.3.0",
-    "axios": "^0.21.1",
+    "axios": "^1.6.0",
     "core-js": "^3.13.1",
     "register-service-worker": "^1.7.2",
     "vue": "^2.6.12",
